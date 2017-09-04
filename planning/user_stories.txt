@@ -1,0 +1,18 @@
+//User Stories
+
+- As a user I can choose a team and view a schedule of their upcoming games
+
+- As a user I can choose a specific game on their schedule
+
+- As a user I can reset my selections at any point 
+
+- As a user I can bookmark team or game specific pages (react router)  
+
+
+
+// Extra features
+
+- As a user I can login and and have favorite team(s) presets remembered
+
+- As a user I can see which teams have the best winning percentages on the specific moon-phases  
+
