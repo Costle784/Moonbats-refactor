@@ -24,12 +24,11 @@ class App extends React.Component {
       <Router>
         <div className='container'>
           <Header />
-          <div>hey</div>
-          // <Switch>
-          //   <Route exact path='/Moonbats' component={Home} />)}/>
-          //   <Redirect from='/' to='/Moonbats' />
-          //   <Route exact path='/teams/:id/games' />
-          // </Switch>
+          <Switch>
+            <Route exact path='/Moonbats' component={Home} />)}/>
+            <Redirect from='/' to='/Moonbats' />
+            <Route path='/teams/:id/games' />
+          </Switch>
         </div>
       </Router>
     )
