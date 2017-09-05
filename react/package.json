@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open",
-    "create": "webpack"
+    "start": "webpack-dev-server --open"
   },
   "author": "Curtis Ostle",
   "license": "",
