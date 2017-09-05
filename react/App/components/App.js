@@ -12,7 +12,7 @@ class App extends React.Component {
   constructor() {
     super()
 
-  
+
   }
   addSchedule(e) {
     console.log(e.target);
@@ -24,11 +24,12 @@ class App extends React.Component {
       <Router>
         <div className='container'>
           <Header />
-          <Switch>
-            <Route exact path='/Moonbats' component={() => (<Home handleChange={(e) => this.addSchedule(e)} />)}/>
-            <Redirect from='/' to='/Moonbats' />
-            <Route exact path='/teams/:id/games' />
-          </Switch>
+          <div>hey</div>
+          // <Switch>
+          //   <Route exact path='/Moonbats' component={Home} />)}/>
+          //   <Redirect from='/' to='/Moonbats' />
+          //   <Route exact path='/teams/:id/games' />
+          // </Switch>
         </div>
       </Router>
     )
