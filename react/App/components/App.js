@@ -27,7 +27,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path='/Moonbats' component={Home} />)}/>
             <Redirect from='/' to='/Moonbats' />
-            <Route path='/teams/:id/games' />
+            <Route path='/teams/{}' />
           </Switch>
         </div>
       </Router>
