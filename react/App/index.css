@@ -1,7 +1,8 @@
 body {
-  background:green;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  background:#000;
+  color:#FFF;
 }
-
 .container {
   max-width:1200px;
   margin:0 auto;
@@ -12,9 +13,24 @@ body {
 }
 
 .home-container {
-  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
-.bats {
-  width:175px;
+
+.moonball {
+  width:200px;
+  position:absolute;
+  z-index: 0;
+}
+
+.stitches {
+  width:200px;
+  z-index: 1000;
+}
+
+.image-container {
+  width:200px;
+  position: relative;
 }
