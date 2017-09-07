@@ -9,32 +9,111 @@ Game.destroy_all
 nationals = Team.create!({
   name:'Washington Nationals',
   symbol:'WSN',
-  logo:'http://www.stickpng.com/assets/images/584d42180a44bd1070d5d418.png'
+  logo:'http://www.stickpng.com/assets/images/584d42180a44bd1070d5d418.png',
+  league:'N'
 })
 
 phillies = Team.create!({
   name:"Philadelphia Phillies",
   symbol:"PHI",
-  logo:'http://2080baseball.com/wp-content/uploads/2015/11/LogoMLBPHI.png'
+  logo:'http://2080baseball.com/wp-content/uploads/2015/11/LogoMLBPHI.png',
+  league:'N'
 })
 
 braves = Team.create!({
   name:"Atlanta Braves",
   symbol:'ATL',
-  logo:'http://www.stickpng.com/assets/images/584d43fb0a44bd1070d5d435.png'
+  logo:'http://www.stickpng.com/assets/images/584d43fb0a44bd1070d5d435.png',
+  league:'N'
 })
 
 mets = Team.create!({
   name:'New York Mets',
   symbol:'NYM',
-  logo:'http://www.stickpng.com/assets/images/584d43140a44bd1070d5d427.png'
+  logo:'http://www.stickpng.com/assets/images/584d43140a44bd1070d5d427.png',
+  league:'N'
 })
 
 marlins = Team.create!({
   name:'Miami Marlins',
   symbol:'MIA',
-  logo: 'http://www.stickpng.com/assets/images/584d439b0a44bd1070d5d42e.png'
+  logo: 'http://www.stickpng.com/assets/images/584d439b0a44bd1070d5d42e.png',
+  league:'N'
 })
+
+cubs = Team.create!({
+  name:'Chicago Cubs',
+  symbol:'CHC',
+  logo: '',
+  league:'N'
+})
+
+cardinals = Team.create!({
+  name:'St Louis Cardinals',
+  symbol:'STL',
+  logo: '',
+  league:'N'
+})
+
+brewers = Team.create!({
+  name:'Milwaukee Brewers',
+  symbol:'MIL',
+  logo: '',
+  league:'N'
+})
+
+pirates = Team.create!({
+  name:'Pittsburgh Pirates',
+  symbol:'PIT',
+  logo: '',
+  league:'N'
+})
+
+reds = Team.create!({
+  name:'Cincinnati Reds',
+  symbol:'CIN',
+  logo: '',
+  league:'N'
+})
+
+dodgers = Team.create!({
+  name:'Los Angeles Dodgers',
+  symbol:'LAD',
+  logo: '',
+  league:'N'
+})
+
+reds = Team.create!({
+  name:'Arizona Diamondbacks',
+  symbol:'ARI',
+  logo: '',
+  league:'N'
+})
+
+reds = Team.create!({
+  name:'Cincinnati Reds',
+  symbol:'CIN',
+  logo: '',
+  league:'N'
+})
+
+reds = Team.create!({
+  name:'Cincinnati Reds',
+  symbol:'CIN',
+  logo: '',
+  league:'N'
+})
+
+reds = Team.create!({
+  name:'Cincinnati Reds',
+  symbol:'CIN',
+  logo: '',
+  league:'N'
+})
+
+
+
+
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2017.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
