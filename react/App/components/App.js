@@ -6,6 +6,7 @@ var Switch = ReactRouter.Switch;
 var Redirect = ReactRouter.Redirect;
 var Header = require('./Header');
 var Home = require('./Home');
+var Teams = require('./Teams');
 
 
 class App extends React.Component {
@@ -25,9 +26,9 @@ class App extends React.Component {
         <div className='container'>
           <Header />
           <Switch>
-            <Route exact path='/Moonbats' component={Home} />)}/>
-            <Redirect from='/' to='/Moonbats' />
-            <Route path='/teams/{}' />
+            <Route exact path='/Moonbats' component={Home} />
+            <Redirect exact path='/' to='/Moonbats' />
+            <Route path='/teams' component={Teams} />
           </Switch>
         </div>
       </Router>
