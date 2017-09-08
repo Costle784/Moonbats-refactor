@@ -5,6 +5,17 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color:rgb(255,239,104);
+}
 .container {
   max-width:1200px;
   margin:0 auto;
@@ -30,13 +41,20 @@ body {
   color:#FFF;
 }
 
-.button-container {
-  text-align:center;
-}
-.button-container:hover {
-  cursor:pointer;
-}
-
 .bats {
   width:150px;
+}
+
+.bat-button {
+  text-decoration: none;
+  font-weight:800;
+  text-align:center;
+}
+
+.bat-button:active {
+  transform: translateY(2px);
+}
+
+.bat-button:hover {
+  color: #FFF;
 }
