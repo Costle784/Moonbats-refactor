@@ -21,6 +21,11 @@ function SelectLeague(props) {
   )
 }
 
+function TeamGrid(props) {
+  return (
+
+  )
+}
 
 
 
@@ -28,16 +33,29 @@ class Teams extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      league: 'All',
+      selectedLeague: 'All',
       teams: null
     }
+  }
+
+  componentDidMount() {
+    this.updateLeague(this.state.selectedLeague);
+  }
+
+  updateLeague(league) {
+    this.setState 
   }
 
   render() {
     return (
       <div>
-        <SelectLeague />
-        <div>Teams</div>
+        <SelectLeague
+          league={this.state.selectedLeague}
+          onSelect={this.updateLeague}
+        />
+        {!this.state.teams ?
+          <p>Loading</p> :
+          <TeamGrid teams={this.state.teams} />}
       </div>
     )
   }
