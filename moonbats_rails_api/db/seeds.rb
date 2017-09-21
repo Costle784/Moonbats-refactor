@@ -10,210 +10,210 @@ nationals = Team.create!({
   name:'Washington Nationals',
   symbol:'WSN',
   logo:"http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/was.png",
-  league:'N'
+  league:'NL'
 })
 
 phillies = Team.create!({
   name:"Philadelphia Phillies",
   symbol:"PHI",
   logo:'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/phi.png',
-  league:'N'
+  league:'NL'
 })
 
 braves = Team.create!({
   name:"Atlanta Braves",
   symbol:'ATL',
   logo:'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/atl.png',
-  league:'N'
+  league:'NL'
 })
 
 mets = Team.create!({
   name:'New York Mets',
   symbol:'NYM',
   logo:'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/nym.png',
-  league:'N'
+  league:'NL'
 })
 
 marlins = Team.create!({
   name:'Miami Marlins',
   symbol:'MIA',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/mia.png',
-  league:'N'
+  league:'NL'
 })
 
 cubs = Team.create!({
   name:'Chicago Cubs',
   symbol:'CHC',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/chc.png',
-  league:'N'
+  league:'NL'
 })
 
 cardinals = Team.create!({
   name:'St Louis Cardinals',
   symbol:'STL',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/stl.png',
-  league:'N'
+  league:'NL'
 })
 
 brewers = Team.create!({
   name:'Milwaukee Brewers',
   symbol:'MIL',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/mil.png',
-  league:'N'
+  league:'NL'
 })
 
 pirates = Team.create!({
   name:'Pittsburgh Pirates',
   symbol:'PIT',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/pit.png',
-  league:'N'
+  league:'NL'
 })
 
 reds = Team.create!({
   name:'Cincinnati Reds',
   symbol:'CIN',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/cin.png',
-  league:'N'
+  league:'NL'
 })
 
 dodgers = Team.create!({
   name:'Los Angeles Dodgers',
   symbol:'LAD',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/lad.png',
-  league:'N'
+  league:'NL'
 })
 
 diamonbacks = Team.create!({
   name:'Arizona Diamondbacks',
   symbol:'ARI',
   logo:'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/ari.png',
-  league:'N'
+  league:'NL'
 })
 
 rockies = Team.create!({
   name:'Colorado Rockies',
   symbol:'COL',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/col.png',
-  league:'N'
+  league:'NL'
 })
 
 padres = Team.create!({
   name:'San Diego Padres',
   symbol:'SDP',
   logo: 'http://a1.espncdn.com/combiner/i?img=%2Fi%2Fteamlogos%2Fmlb%2F500%2Fsd.png',
-  league:'N'
+  league:'NL'
 })
 
 giants = Team.create!({
   name:'San Francisco Giants',
   symbol:'SFG',
   logo: 'http://a.espncdn.com/i/teamlogos/mlb/500-dark/scoreboard/sf.png',
-  league:'N'
+  league:'NL'
 })
 
 redsox = Team.create!({
   name:'Boston Red Sox',
   symbol:'BOS',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/bos.png',
-  league:'A'
+  league:'AL'
 })
 
 yankees = Team.create!({
   name:'New York Yankees',
   symbol:'NYY',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/nyy.png',
-  league:'A'
+  league:'AL'
 })
 
 orioles = Team.create!({
   name:'Baltimore Orioles',
   symbol:'BAL',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/bal.png',
-  league:'A'
+  league:'AL'
 })
 
 rays = Team.create!({
   name:'Tampa Bay Rays',
   symbol:'TBR',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/tam.png',
-  league:'A'
+  league:'AL'
 })
 
 jays = Team.create!({
   name:'Toronto Blue Jays',
   symbol:'TOR',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/tor.png',
-  league:'A'
+  league:'AL'
 })
 
 indians = Team.create!({
   name:'Cleveland Indians',
   symbol:'CLE',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/cle.png',
-  league:'A'
+  league:'AL'
 })
 
 twins = Team.create!({
   name:'Minnesota Twins',
   symbol:'MIN',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/min.png',
-  league:'A'
+  league:'AL'
 })
 
 royals = Team.create!({
   name:'Kansas City Royals',
   symbol:'KCR',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/kan.png',
-  league:'A'
+  league:'AL'
 })
 
 tigers = Team.create!({
   name:'Detroit Tigers',
   symbol:'DET',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/det.png',
-  league:'A'
+  league:'AL'
 })
 
 whitesox = Team.create!({
   name:'Chicago White Sox',
   symbol:'CHW',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/chw.png',
-  league:'A'
+  league:'AL'
 })
 
 astros = Team.create!({
   name:'Houston Astros',
   symbol:'HOU',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/hou.png',
-  league:'A'
+  league:'AL'
 })
 
 angels = Team.create!({
   name:'Los Angeles Angels',
   symbol:'LAA',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/laa.png',
-  league:'A'
+  league:'AL'
 })
 
 rangers = Team.create!({
   name:'Texas Rangers',
   symbol:'TEX',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/tex.png',
-  league:'A'
+  league:'AL'
 })
 
 mariners = Team.create!({
   name:'Seatle Mariners',
   symbol:'SEA',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/sea.png',
-  league:'A'
+  league:'AL'
 })
 
 athletics = Team.create!({
   name:'Oakland Athletics',
   symbol:'OAK',
   logo: 'http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/oak.png',
-  league:'A'
+  league:'AL'
 })
 
 

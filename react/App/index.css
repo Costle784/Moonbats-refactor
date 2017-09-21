@@ -8,6 +8,7 @@ body {
 
 li {
   list-style-type: none;
+  padding:10px;
 }
 a {
   text-decoration: none;
@@ -29,8 +30,8 @@ a {
   background: url('https://allwatches.com.sg/wp-content/uploads/2017/06/Moon-phases.png');
   background-position: center;
   min-height:245px;
-
 }
+
 .title {
   padding:110px 0 0 0;
   font-size:6em;
@@ -42,16 +43,43 @@ a {
   width:150px;
 }
 
-.bat-button {
+.button {
+  color: #e6e6e6;
+  background: #0a0a0a;
+  border: 1px solid white;
+  font-size: 16px;
+  border-radius: 3px;
+  width: 200px;
+  text-align: center;
+  display: block;
+  padding: 7px 0;
+  margin: 10px auto;
+}
+
+.button:hover:enabled {
+  background: linear-gradient(#1a1a1a,#0a0a0a);
+  color: #fff;
   text-decoration: none;
-  font-weight:800;
-  text-align:center;
 }
 
-.bat-button:active {
-  transform: translateY(2px);
+.button:active {
+  transform: translateY(1px);
 }
 
-.bat-button:hover {
-  color: #FFF;
+.begin-button {
+  margin-top: 50px;
+}
+
+.leagues {
+  display:flex;
+  justify-content: center;
+  font-size:2em;
+}
+
+.league {
+  padding:30px;
+}
+
+.league:hover {
+  cursor:pointer;
 }
