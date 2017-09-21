@@ -1,11 +1,13 @@
 var React = require('react');
 var NavLink = require('react-router-dom').NavLink;
+var Link = require('react-router-dom').Link;
 var api = require('../utils/api');
 var PropTypes = require('prop-types');
 
 
+
 function SelectLeague(props) {
-  let leagues = ['All','NL','AL'];
+  let leagues = ['NL','AL'];
 
   return (
     <ul className='leagues'>
@@ -29,17 +31,34 @@ SelectLeague.propTypes = {
   onSelect: PropTypes.func.isRequired
 }
 
-// function TeamGrid(props) {
-//   return (
-//
-//   )
-// }
+function TeamGrid(props) {
+  return (
+    <ul className='team-grid'>
+      {props.teams.map(function(team) {
+        let pathname = `/teams/${team.id}/games`
+
+        return (
+          <li key={team.symbol} className='team-item'>
+            <Link className='team-list' to={{pathname}}>
+              <img
+                className='logo'
+                src={team.logo}
+                alt={`logo for the ${team.name}`}
+              />
+              <div>{team.name}</div>
+            </Link>
+          </li>
+        )
+      })}
+    </ul>
+  )
+}
 
 class Teams extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedLeague: 'All',
+      selectedLeague: 'NL',
       teams: null
     }
     this.updateLeague = this.updateLeague.bind(this);
@@ -55,7 +74,9 @@ class Teams extends React.Component {
     })
     api.getTeams(league)
       .then((teams) => {
-        console.log(teams);
+        this.setState({
+          teams:teams
+        });
     })
   }
 
