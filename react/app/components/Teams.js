@@ -1,5 +1,7 @@
 var React = require('react');
 var NavLink = require('react-router-dom').NavLink;
+var api = require('../utils/api');
+var PropTypes = require('prop-types');
 
 
 function SelectLeague(props) {
@@ -10,6 +12,7 @@ function SelectLeague(props) {
       {leagues.map((league) => {
         return (
           <li
+            className='league'
             style={league === props.league ? {color:'#FF0000'} : null}
             onClick={props.onSelect.bind(null,league)}
             key={league}>
@@ -19,6 +22,11 @@ function SelectLeague(props) {
       })}
     </ul>
   )
+}
+
+SelectLeague.propTypes = {
+  league: PropTypes.string.isRequired,
+  onSelect: PropTypes.func.isRequired
 }
 
 // function TeamGrid(props) {
@@ -34,7 +42,7 @@ class Teams extends React.Component {
       selectedLeague: 'All',
       teams: null
     }
-  this.updateLeague = this.updateLeague.bind(this);
+    this.updateLeague = this.updateLeague.bind(this);
   }
 
   componentDidMount() {
@@ -42,9 +50,12 @@ class Teams extends React.Component {
   }
 
   updateLeague(league) {
-    console.log(this)
     this.setState({
       selectedLeague: league
+    })
+    api.getTeams(league)
+      .then((teams) => {
+        console.log(teams);
     })
   }
 
