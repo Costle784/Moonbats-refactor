@@ -4,6 +4,7 @@ body {
   background:url('https://65blogs.com/wp-content/uploads/2015/04/1323846634295-1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 li {
@@ -14,6 +15,7 @@ a {
   text-decoration: none;
   color:rgb(255,239,104);
 }
+
 .container {
   max-width:1200px;
   margin:0 auto;
@@ -82,4 +84,21 @@ a {
 
 .league:hover {
   cursor:pointer;
+}
+
+.team-grid {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-around;
+}
+
+.team-item {
+  margin:20px;
+  text-align:center;
+  width:200px;
+}
+
+
+.logo {
+  width: 150px;
 }

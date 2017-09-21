@@ -7,6 +7,7 @@ var Redirect = ReactRouter.Redirect;
 var Header = require('./Header');
 var Home = require('./Home');
 var Teams = require('./Teams');
+var ScheduleContainer = require('./ScheduleContainer');
 
 
 class App extends React.Component {
@@ -14,10 +15,6 @@ class App extends React.Component {
     super()
 
 
-  }
-  addSchedule(e) {
-    console.log(e.target);
-    console.log('hello');
   }
 
   render() {
@@ -29,6 +26,7 @@ class App extends React.Component {
             <Route exact path='/Moonbats' component={Home} />
             <Redirect exact path='/' to='/Moonbats' />
             <Route path='/teams' component={Teams} />
+            <Route path='/teams/:id' component={ScheduleContainer} />
           </Switch>
         </div>
       </Router>
