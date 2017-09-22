@@ -63,7 +63,7 @@ class Teams extends React.Component {
     super(props);
     this.state = {
       selectedLeague: 'NL',
-      selectedTeam: ''
+      teams: []
     }
     this.updateLeague = this.updateLeague.bind(this);
   }
@@ -76,7 +76,7 @@ class Teams extends React.Component {
     this.setState({
       selectedLeague: league
     })
-    api.getLeague(league)
+    api.getTeamsInLeague(league)
       .then((teams) => {
         this.setState({
           teams:teams
