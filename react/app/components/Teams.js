@@ -35,11 +35,11 @@ function TeamGrid(props) {
   return (
     <ul className='team-grid'>
       {props.teams.map(function(team) {
-        let pathname = `/teams/${team.id}/games`
+        let pathname = `/teams/${team.symbol}/games`
 
         return (
           <li key={team.symbol} className='team-item'>
-            <Link className='team-list' to={{pathname}}>
+            <Link className='team-list' to={{pathname}} >
               <img
                 className='logo'
                 src={team.logo}
@@ -54,12 +54,16 @@ function TeamGrid(props) {
   )
 }
 
+TeamGrid.propTypes = {
+  teams: PropTypes.array.isRequired
+}
+
 class Teams extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedLeague: 'NL',
-      teams: null
+      selectedTeam: ''
     }
     this.updateLeague = this.updateLeague.bind(this);
   }
@@ -72,7 +76,7 @@ class Teams extends React.Component {
     this.setState({
       selectedLeague: league
     })
-    api.getTeams(league)
+    api.getLeague(league)
       .then((teams) => {
         this.setState({
           teams:teams
