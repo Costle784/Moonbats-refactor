@@ -17,25 +17,31 @@ class ScheduleContainer extends React.Component {
     super(props);
     this.state = {
       team:{},
-      games:[],
+      games:[]
     }
   }
 
   componentDidMount() {
-    let teamSymbol = this.props.match.params.symbol;
-
-    api.getTeam(teamSymbol)
+    let id = this.props.match.params.id;
+    api.getTeam(id)
       .then((team) => {
         this.setState({
           team: team[0]
         })
       })
-    }
+    api.getGames(id)
+      .then((games) => {
+        this.setState({
+          games: games
+        })
+      })
+  }
 
   render() {
     return (
       <div className='schedule-container'>
         <Logo team={this.state.team} />
+
       </div>
     )
   }
