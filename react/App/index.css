@@ -102,3 +102,7 @@ a {
 .logo {
   width: 150px;
 }
+
+.schedule-container {
+  text-align:center;
+}
