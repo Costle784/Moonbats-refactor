@@ -11,6 +11,7 @@ class GamesController < ApplicationController
     @game = @team.games.find(params[:id])
     render json: @game
   end
+
   def futuregames
     @team = Team.find(params[:team_id])
     @games = @team.games.where("date > ?", DateTime.now)
