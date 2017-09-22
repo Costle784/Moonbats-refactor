@@ -17,14 +17,17 @@ module.exports = {
         });
       })
     },
-  getTeam: (teamSymbol) => {
+  getTeam: (id) => {
     return getAllTeams().then((response) => {
       return response.data.filter((team) => {
-        return teamSymbol === team.symbol;
+        return team.id == id
       })
     })
   },
-  getGames: (x) => {
-    console.log(x)
+  getGames: (id) => {
+    let futureGamesPath = `http://localhost:3000/teams/${id}/futuregames`
+    return axios.get(futureGamesPath).then((response) => {
+      return response.data;
+    })
   }
 }

@@ -35,7 +35,7 @@ function TeamGrid(props) {
   return (
     <ul className='team-grid'>
       {props.teams.map(function(team) {
-        let pathname = `/teams/${team.symbol}/games`
+        let pathname = `/teams/${team.id}/games`
 
         return (
           <li key={team.symbol} className='team-item'>
