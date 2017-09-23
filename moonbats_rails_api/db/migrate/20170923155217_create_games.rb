@@ -5,6 +5,8 @@ class CreateGames < ActiveRecord::Migration[5.0]
       t.date :date
       t.string :opp
       t.string :wl
+      t.string :location
+      t.string :home
     end
   end
 end
