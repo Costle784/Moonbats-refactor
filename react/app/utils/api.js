@@ -20,7 +20,7 @@ module.exports = {
   getTeam: (id) => {
     return getAllTeams().then((response) => {
       return response.data.filter((team) => {
-        return team.id == id
+        return team.id == id || team.symbol == id
       })
     })
   },

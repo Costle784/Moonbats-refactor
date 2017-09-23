@@ -8,6 +8,7 @@ var Header = require('./Header');
 var Home = require('./Home');
 var Teams = require('./Teams');
 var ScheduleContainer = require('./ScheduleContainer');
+var GamePage = require('./GamePage');
 
 
 class App extends React.Component {
@@ -27,6 +28,7 @@ class App extends React.Component {
             <Redirect exact path='/' to='/Moonbats' />
             <Route exact path='/teams' component={Teams} />
             <Route path='/teams/:id/games' component={ScheduleContainer} />
+            <Route path='/teams/:team_id/games/:id' component={GamePage} />
           </Switch>
         </div>
       </Router>
