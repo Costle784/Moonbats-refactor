@@ -32,31 +32,31 @@ class Game extends React.Component{
     let teams = this.props.allTeams;
     let games = this.props.games;
 
-    return (
-      <ul className='game-grid'>
-        {games.map(function(game) {
-          let opponent = teams.filter((team) => {
-            return game.opp === team.symbol
-          });
-          let opp = opponent[0].name
-          let pathname = `/teams/${teamId}/games/${game.id}`
+    return(
+      <div>
+        <h1 className='schedule-heading'>Select a Game...</h1>
+        <ul className='game-grid'>
+          {games.map(function(game) {
+            let opponent = teams.filter((team) => {
+              return game.opp === team.symbol
+            });
+            let opp = opponent[0].name
+            let pathname = `/teams/${teamId}/games/${game.id}`
 
-
-
-
-          return (
-            <li key={game.id} className='team-item'>
-              <Link className='team-list' to={{pathname}} >
-                <div>{displayDate(game.date)}</div>
-                <span>{game.home === 'y' ?
-                  <span>@ </span>  : <span>vs. </span>}
-                </span>
-                <span>{opp}</span>
-              </Link>
-            </li>
-          )
-        })}
-      </ul>
+            return (
+              <li key={game.id} className='game-item'>
+                <Link className='team-list' to={{pathname}}>
+                  <div className='date'>{displayDate(game.date)}</div>
+                  <div>{game.home === 'y' ?
+                    <span>@ {opp}</span>  : <span>vs. {opp}</span>}
+                  </div>
+                  <img className='minilogo' alt={`logo for ${opponent[0].name}`} src={opponent[0].logo}/>
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
     )
   }
 }
