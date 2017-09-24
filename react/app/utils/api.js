@@ -1,15 +1,21 @@
 const axios = require('axios');
 
 
-
-
 const getAllTeams = () => {
-  return axios.get('http://localhost:3000/teams.json')
+  return axios.get('http://localhost:3000/teams.json');
 }
 
 
 
+
+
 module.exports = {
+  getTeams: () => {
+    return getAllTeams()
+      .then((response) => {
+        return response.data
+      })
+  },
   getTeamsInLeague: (league) => {
     return getAllTeams().then((response) => {
       return response.data.filter((team) => {
@@ -20,7 +26,7 @@ module.exports = {
   getTeam: (id) => {
     return getAllTeams().then((response) => {
       return response.data.filter((team) => {
-        return team.id == id || team.symbol == id
+        return team.id == id;
       })
     })
   },
