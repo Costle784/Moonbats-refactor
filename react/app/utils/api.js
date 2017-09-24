@@ -5,10 +5,6 @@ const getAllTeams = () => {
   return axios.get('http://localhost:3000/teams.json');
 }
 
-
-
-
-
 module.exports = {
   getTeams: () => {
     return getAllTeams()
@@ -34,6 +30,14 @@ module.exports = {
     let futureGamesPath = `http://localhost:3000/teams/${id}/futuregames`
     return axios.get(futureGamesPath).then((response) => {
       return response.data;
+    })
+  },
+  getGame: (id) => {
+    let futureGamesPath = `http://localhost:3000/teams/${id}/futuregames`
+    return axios.get(futureGamesPath).then((response) => {
+      return response.data.filter((game) => {
+        return id === game.id
+      })
     })
   }
 }
