@@ -29,24 +29,14 @@ class Game extends React.Component{
     }
   }
 
-  // fetchTeam(symbol) {
-  //   api.getTeam(symbol)
-  //     .then((response) => {
-  //       this.setState({
-  //         opp:response[0].name
-  //       })
-  //     })
-  // }
+
 
 
   render() {
-    console.log(this)
+    let teamId = this.props.team.id;
     return (
-
       <ul className='game-grid'>
         {this.props.games.map(function(game) {
-          let teamId = this.props.team.id
-
 
           let pathname = `/teams/${teamId}/games/${game.id}`
           let date = game.date
@@ -56,7 +46,7 @@ class Game extends React.Component{
               <Link className='team-list' to={{pathname}} >
                 <div>{displayDate(game.date)}</div>
                 <p>{game.home === 'y' ?
-                      <span>@</span>  : <span>vs.</span>}
+                  <span>@</span>  : <span>vs.</span>}
                 </p>
               </Link>
             </li>
@@ -71,6 +61,7 @@ class ScheduleContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      allTeams:[],
       team:{},
       games:[]
     }
@@ -78,10 +69,10 @@ class ScheduleContainer extends React.Component {
 
   componentDidMount() {
     let id = this.props.match.params.id;
-    api.getTeam(id)
-      .then((team) => {
+
+    api.getTeams().then((teams) => {
         this.setState({
-          team: team[0]
+          allTeams: teams
         })
       })
     api.getGames(id)
@@ -90,7 +81,14 @@ class ScheduleContainer extends React.Component {
           games: games
         })
       })
+    api.getTeam(id)
+      .then((team) => {
+        this.setState({
+          team:team[0]
+        })
+      })
   }
+
 
   render() {
     return (
