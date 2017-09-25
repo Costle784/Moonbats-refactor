@@ -64,7 +64,7 @@ class App extends React.Component {
               <ScheduleContainer allTeams={this.state.allTeams} selectedTeam={this.state.selectedTeam} handleClick={this.handleClick} />
             }/>
             <Route path='/teams/:team_id/games/:id' render={ () =>
-              <GamePage selectedTeam={this.state.selectedTeam} opp={this.state.opponent} />
+              <GamePage selectedTeam={this.state.selectedTeam} opp={this.state.opponent} game={this.state.selectedGame} />
             }/>
           </Switch>
         </div>
