@@ -101,6 +101,7 @@ a {
 
 .logo {
   width: 150px;
+  height:150px;
 }
 
 .schedule-container {
@@ -128,5 +129,45 @@ a {
 }
 .game-item {
   background:rgba(0,0,0,.3);
-  border-radius:50%;
+  border-radius:75%;
+}
+
+.selected-game-container {
+  display:flex;
+  justify-content: space-around;
+  align-items:flex-end;
+  flex-wrap:wrap;
+}
+
+.vs {
+  font-size:4em;
+}
+
+.game-location {
+  text-align: center;
+  padding:5px;
+  padding-top:45px;
+  font-size:2em;
+}
+
+.game-date {
+  padding:5px;
+  text-align:center;
+  font-size: 2em;
+  /*color:rgb(255,239,104);*/
+}
+
+.team-name {
+  text-align:center;
+  font-size:1.5em;
+  color:rgb(255,239,104);
+}
+
+.game-container {
+  display:flex;
+  flex-direction: column;
+}
+
+.team-list {
+  text-align:center;
 }
