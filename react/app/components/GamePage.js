@@ -20,12 +20,11 @@ class GamePage extends React.Component {
           team:team[0]
         })
       })
-    api.getGame(gameId)
+    api.getGame(gameId, teamId)
       .then((game) => {
-        this.setState({
-          opp:
-        })
+        console.log(game)
       })
+
   }
 
 

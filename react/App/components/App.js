@@ -9,16 +9,39 @@ var Home = require('./Home');
 var Teams = require('./Teams');
 var ScheduleContainer = require('./ScheduleContainer');
 var GamePage = require('./GamePage');
+var api = require('../utils/api');
 
 
 class App extends React.Component {
-  constructor() {
-    super()
-
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      allTeams:[],
+      selectedTeam:{}
+    }
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
+  componentDidMount() {
+    api.getAllTeams()
+      .then((teams) => {
+        this.setState({
+          allTeams:teams,
+          selectedTeam:{}
+        })
+      })
+  }
+
+  handleSelect(team){
+    this.setState({
+      selectedTeam:team
+    })
+  }
+
+
+
   render() {
+
     return (
       <Router>
         <div className='container'>
@@ -26,8 +49,14 @@ class App extends React.Component {
           <Switch>
             <Route exact path='/Moonbats' component={Home} />
             <Redirect exact path='/' to='/Moonbats' />
-            <Route exact path='/teams' component={Teams} />
-            <Route exact path='/teams/:id/games' component={ScheduleContainer} />
+            <Route exact path='/teams' render={() =>
+              <Teams allTeams={this.state.allTeams}
+                    handleSelect={this.handleSelect}
+              />
+            }/>
+            <Route exact path='/teams/:id/games' render={() =>
+              <ScheduleContainer allTeams={this.state.allTeams}   />
+            }/>
             <Route path='/teams/:team_id/games/:id' component={GamePage} />
           </Switch>
         </div>
@@ -37,3 +66,5 @@ class App extends React.Component {
 }
 
 module.exports = App;
+
+// <Route exact path='/teams/:id/games' render={()=> <ScheduleContainer selectedTeam={this.state.selectedTeam} schedule={this.state.schedule} clearSearch={() => this.clearSearch()}/>
