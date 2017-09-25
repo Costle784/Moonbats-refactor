@@ -39,7 +39,7 @@ function TeamGrid(props) {
 
         return (
           <li key={team.symbol} className='team-item'>
-            <Link className='team-list' to={{pathname}} >
+            <Link onClick={props.handleSelect.bind(null,team)} className='team-list' to={{pathname}} >
               <img
                 className='logo'
                 src={team.logo}
@@ -72,17 +72,17 @@ class Teams extends React.Component {
     this.updateLeague(this.state.selectedLeague);
   }
 
+
   updateLeague(league) {
-    this.setState({
-      selectedLeague: league
+    let leagueTeams = this.props.allTeams.filter((team) => {
+      return league === team.league;
     })
-    api.getTeamsInLeague(league)
-      .then((teams) => {
-        this.setState({
-          teams:teams
-        });
+    this.setState({
+      selectedLeague: league,
+      teams:leagueTeams
     })
   }
+
 
   render() {
     return (
@@ -93,7 +93,7 @@ class Teams extends React.Component {
         />
         {!this.state.teams ?
           <p>Loading</p> :
-          <TeamGrid teams={this.state.teams} />}
+          <TeamGrid teams={this.state.teams} handleSelect={this.props.handleSelect} />}
       </div>
     )
   }

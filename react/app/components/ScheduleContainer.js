@@ -72,19 +72,15 @@ class ScheduleContainer extends React.Component {
   }
 
   componentDidMount() {
-    let id = this.props.match.params.id;
+  //   let id = this.state.match.params.id;
 
-    api.getTeams().then((teams) => {
-        this.setState({
-          allTeams: teams
-        })
-      })
-    api.getGames(id)
-      .then((games) => {
-        this.setState({
-          games: games
-        })
-      })
+
+    // api.getGames(id)
+    //   .then((games) => {
+    //     this.setState({
+    //       games: games
+    //     })
+    //   })
     api.getTeam(id)
       .then((team) => {
         this.setState({
