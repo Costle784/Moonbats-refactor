@@ -72,7 +72,6 @@ class Teams extends React.Component {
     this.updateLeague(this.state.selectedLeague);
   }
 
-
   updateLeague(league) {
     let leagueTeams = this.props.allTeams.filter((team) => {
       return league === team.league;
@@ -82,7 +81,6 @@ class Teams extends React.Component {
       teams:leagueTeams
     })
   }
-
 
   render() {
     return (
