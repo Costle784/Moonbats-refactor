@@ -20,6 +20,7 @@ class App extends React.Component {
       selectedTeam:{}
     }
     this.handleSelect = this.handleSelect.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -27,18 +28,23 @@ class App extends React.Component {
       .then((teams) => {
         this.setState({
           allTeams:teams,
-          selectedTeam:{}
+          selectedTeam:{},
+          opponent:{}
         })
       })
   }
 
-  handleSelect(team){
+  handleSelect(team) {
     this.setState({
       selectedTeam:team
     })
   }
 
-
+  handleClick(team){
+    this.setState({
+      opponent:team
+    })
+  }
 
   render() {
 
@@ -51,11 +57,11 @@ class App extends React.Component {
             <Redirect exact path='/' to='/Moonbats' />
             <Route exact path='/teams' render={() =>
               <Teams allTeams={this.state.allTeams}
-                    handleSelect={this.handleSelect}
+                handleSelect={this.handleSelect}
               />
             }/>
             <Route exact path='/teams/:id/games' render={() =>
-              <ScheduleContainer allTeams={this.state.allTeams}   />
+              <ScheduleContainer allTeams={this.state.allTeams} selectedTeam={this.state.selectedTeam} handleClick={this.handleClick} />
             }/>
             <Route path='/teams/:team_id/games/:id' component={GamePage} />
           </Switch>

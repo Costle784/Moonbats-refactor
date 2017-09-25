@@ -20,23 +20,16 @@ function Logo(props) {
   )
 }
 
-class Game extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      opp:''
-    }
-  }
-  render() {
-    let teamId = this.props.team.id;
-    let teams = this.props.allTeams;
-    let games = this.props.games;
+function Game(props){
+    let teamId = props.team.id;
+    let teams = props.allTeams;
+    let games = props.games;
 
     return(
       <div>
         <h1 className='schedule-heading'>Select a Game...</h1>
         <ul className='game-grid'>
-          {games.map(function(game) {
+          {games.map((game) => {
             let opponent = teams.filter((team) => {
               return game.opp === team.symbol
             });
@@ -45,7 +38,7 @@ class Game extends React.Component{
 
             return (
               <li key={game.id} className='game-item'>
-                <Link className='team-list' to={{pathname}}>
+                <Link className='team-list' to={{pathname}} onClick={props.handleClick.bind(null,     opponent[0])}>
                   <div className='date'>{displayDate(game.date)}</div>
                   <div>{game.home === 'y' ?
                     <span>@ {opp}</span>  : <span>vs. {opp}</span>}
@@ -58,42 +51,32 @@ class Game extends React.Component{
         </ul>
       </div>
     )
-  }
 }
 
 class ScheduleContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      allTeams:[],
-      team:{},
       games:[]
     }
   }
 
   componentDidMount() {
-  //   let id = this.state.match.params.id;
-
-
-    // api.getGames(id)
-    //   .then((games) => {
-    //     this.setState({
-    //       games: games
-    //     })
-    //   })
-    api.getTeam(id)
-      .then((team) => {
+    let id = this.props.selectedTeam.id;
+    api.getGames(id)
+      .then((games) => {
         this.setState({
-          team:team[0]
+          games: games
         })
       })
+
   }
 
   render() {
     return (
       <div className='schedule-container'>
-        <Logo team={this.state.team} />
-        <Game team={this.state.team} games={this.state.games} allTeams={this.state.allTeams} />
+        <Logo team={this.props.selectedTeam} />
+        <Game team={this.props.selectedTeam} games={this.state.games} allTeams={this.props.allTeams} handleClick={this.props.handleClick} />
       </div>
     )
   }

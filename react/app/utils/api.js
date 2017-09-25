@@ -15,19 +15,19 @@ module.exports = {
   //       });
   //     })
   //   },
-  getTeam: (id) => {
-    return getAllTeams().then((response) => {
-      return response.data.filter((team) => {
-        return team.id == id;
-      })
-    })
-  }
-  // getGames: (id) => {
-  //   let futureGamesPath = `http://localhost:3000/teams/${id}/futuregames`
-  //   return axios.get(futureGamesPath).then((response) => {
-  //     return response.data;
+  // getTeam: (id) => {
+  //   return getAllTeams().then((response) => {
+  //     return response.data.filter((team) => {
+  //       return team.id == id;
+  //     })
   //   })
   // },
+  getGames: (id) => {
+    let futureGamesPath = `http://localhost:3000/teams/${id}/futuregames`
+    return axios.get(futureGamesPath).then((response) => {
+      return response.data;
+    })
+  }
   // getGame: (gameId, teamId ) => {
   //   let futureGamesPath = `http://localhost:3000/teams/${teamId}/futuregames`
   //   return axios.get(futureGamesPath).then((response) => {
