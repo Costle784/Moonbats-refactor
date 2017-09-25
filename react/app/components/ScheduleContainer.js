@@ -38,7 +38,7 @@ function Game(props){
 
             return (
               <li key={game.id} className='game-item'>
-                <Link className='team-list' to={{pathname}} onClick={props.handleClick.bind(null,     opponent[0])}>
+                <Link className='team-list' to={{pathname}} onClick={props.handleClick.bind(null,     opponent[0], game)}>
                   <div className='date'>{displayDate(game.date)}</div>
                   <div>{game.home === 'y' ?
                     <span>@ {opp}</span>  : <span>vs. {opp}</span>}
@@ -69,7 +69,6 @@ class ScheduleContainer extends React.Component {
           games: games
         })
       })
-
   }
 
   render() {
