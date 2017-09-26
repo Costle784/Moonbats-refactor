@@ -30,6 +30,7 @@ function Game(props){
         <h1 className='schedule-heading'>Select a Game...</h1>
         <ul className='game-grid'>
           {games.map((game) => {
+            console.log(game)
             let opponent = teams.filter((team) => {
               return game.opp === team.symbol
             });
@@ -41,7 +42,7 @@ function Game(props){
                 <Link className='team-list' to={{pathname}} onClick={props.handleClick.bind(null,     opponent[0], game)}>
                   <div className='date'>{displayDate(game.date)}</div>
                   <div>{game.home === 'y' ?
-                    <span>@ {opp}</span>  : <span>vs. {opp}</span>}
+                    <span>vs. {opp}</span>  : <span>@ {opp}</span>}
                   </div>
                   <img className='minilogo' alt={`logo for ${opponent[0].name}`} src={opponent[0].logo}/>
                 </Link>

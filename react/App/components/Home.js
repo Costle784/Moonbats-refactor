@@ -1,8 +1,6 @@
 var React = require('react');
 var Link = require('react-router-dom').Link;
 
-
-
 function Home(props) {
   return (
     <div className='home-container'>
