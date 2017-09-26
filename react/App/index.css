@@ -25,6 +25,8 @@ a {
   display:flex;
   flex-direction:column;
   align-items:center;
+  animation-duration: 2s;
+  animation-name: slidein;
 }
 
 .header {
@@ -47,9 +49,8 @@ a {
 }
 
 .button {
-  color: #e6e6e6;
+  color: #FFF;
   background: #0a0a0a;
-  border: 1px solid white;
   font-size: 16px;
   border-radius: 3px;
   width: 200px;
@@ -57,11 +58,12 @@ a {
   display: block;
   padding: 7px 0;
   margin: 10px auto;
+  box-shadow: 0px 5px 100px #fff;
 }
 
 .button:hover:enabled {
-  background: linear-gradient(#1a1a1a,#0a0a0a);
-  color: #fff;
+  background: ;
+  color: #EaEaEa;
   text-decoration: none;
 }
 
@@ -97,6 +99,10 @@ a {
   margin:20px;
   text-align:center;
   width:200px;
+}
+
+.team-item:hover, .game-item:hover {
+  box-shadow: 0px 0px 5px #fff;
 }
 
 .logo {
@@ -146,12 +152,11 @@ a {
 .game-location {
   text-align: center;
   padding:5px;
-  padding-top:45px;
+  padding-top:15px;
   font-size:2em;
 }
 
 .game-date {
-  padding:5px;
   text-align:center;
   font-size: 2em;
   /*color:rgb(255,239,104);*/
@@ -170,4 +175,21 @@ a {
 
 .team-list {
   text-align:center;
+}
+
+.moon-button {
+  margin-top:75px;
+}
+
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
 }

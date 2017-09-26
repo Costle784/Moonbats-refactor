@@ -6,11 +6,14 @@ function GamePage(props) {
   let opp = props.opp;
   let game = props.game
 
-  console.log(props.opp)
+  console.log(props)
 
     return(
       <div className='game-container'>
         <h2 className='game-date'>{game.date}</h2>
+        <div className='game-location'>
+          <h2>{game.location}</h2>
+        </div>
         <div className='selected-game-container'>
           <div className='team-list'>
             <img src={team.logo} alt={`logo for ${team.name}`} className='logo'/>
@@ -22,9 +25,7 @@ function GamePage(props) {
             <p className='team-name'>{opp.name}</p>
           </div>
         </div>
-        <div className='game-location'>
-          <h2>{game.location}</h2>
-        </div>
+        <button className='button moon-button'>Moon</button>
       </div>
 
     )
