@@ -1,12 +1,14 @@
 var React = require('react');
-var api = require('../utils/api')
+var api = require('../utils/api');
+var Link = require('react-router-dom').Link;
 
 function GamePage(props) {
   let team = props.selectedTeam;
   let opp = props.opp;
   let game = props.game
 
-  console.log(props)
+
+  let pathname = `/teams/${team.id}/games/${game.id}/results`
 
     return(
       <div className='game-container'>
@@ -25,7 +27,7 @@ function GamePage(props) {
             <p className='team-name'>{opp.name}</p>
           </div>
         </div>
-        <button className='button moon-button'>Moon</button>
+        <Link className='button moon-button' to={{pathname}}>Moon</Link>
       </div>
 
     )
