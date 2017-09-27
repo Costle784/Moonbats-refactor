@@ -10,6 +10,7 @@ var Teams = require('./Teams');
 var ScheduleContainer = require('./ScheduleContainer');
 var GamePage = require('./GamePage');
 var api = require('../utils/api');
+var Results = require('./Results');
 
 
 class App extends React.Component {
@@ -19,7 +20,8 @@ class App extends React.Component {
       allTeams:[],
       selectedTeam:{},
       opponent:{},
-      selectedGame:{}
+      selectedGame:{},
+      phases:['New','Waxing Crescent','First Quarter','Waxing Gibbous','Full','Waning Gibbous','Last Quarter','Waning Crescent']
     }
     this.handleSelect = this.handleSelect.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -66,6 +68,9 @@ class App extends React.Component {
             <Route path='/teams/:team_id/games/:id' render={ () =>
               <GamePage selectedTeam={this.state.selectedTeam} opp={this.state.opponent} game={this.state.selectedGame} />
             }/>
+            <Route exact path='/teams/:team_id/games/:id/results' render={ () =>
+              <Results game={this.state.selectedGame} phases={this.state.phases}  />
+            }/>
           </Switch>
         </div>
       </Router>
@@ -74,5 +79,3 @@ class App extends React.Component {
 }
 
 module.exports = App;
-
-// <Route exact path='/teams/:id/games' render={()=> <ScheduleContainer selectedTeam={this.state.selectedTeam} schedule={this.state.schedule} clearSearch={() => this.clearSearch()}/>
