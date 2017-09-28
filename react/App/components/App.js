@@ -65,10 +65,10 @@ class App extends React.Component {
             <Route exact path='/teams/:id/games' render={ () =>
               <ScheduleContainer allTeams={this.state.allTeams} selectedTeam={this.state.selectedTeam} handleClick={this.handleClick} />
             }/>
-            <Route path='/teams/:team_id/games/:id' render={ () =>
+            <Route exact path='/teams/:team_id/games/:id' render={ () =>
               <GamePage selectedTeam={this.state.selectedTeam} opp={this.state.opponent} game={this.state.selectedGame} />
             }/>
-            <Route exact path='/teams/:team_id/games/:id/results' render={ () =>
+            <Route path='/teams/:team_id/games/:id/results' render={ (props) =>
               <Results game={this.state.selectedGame} phases={this.state.phases}  />
             }/>
           </Switch>

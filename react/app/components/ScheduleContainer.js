@@ -2,13 +2,7 @@ var React = require('react');
 var api = require('../utils/api');
 var Link = require('react-router-dom').Link;
 
-function displayDate(date) {
-  let newDate = [];
-  let d = date.split('');
 
-  newDate.push(d[5], d[6], d[7], d[8],d[9],'-',d[0], d[1], d[2], d[3]);
-  return newDate.join('')
-}
 
 function Logo(props) {
   return(
@@ -30,7 +24,6 @@ function Game(props){
         <h1 className='schedule-heading'>Select a Game...</h1>
         <ul className='game-grid'>
           {games.map((game) => {
-            console.log(game)
             let opponent = teams.filter((team) => {
               return game.opp === team.symbol
             });
@@ -40,7 +33,7 @@ function Game(props){
             return (
               <li key={game.id} className='game-item'>
                 <Link className='team-list' to={{pathname}} onClick={props.handleClick.bind(null,     opponent[0], game)}>
-                  <div className='date'>{displayDate(game.date)}</div>
+                  <div className='date'>{api.displayDate(game.date)}</div>
                   <div>{game.home === 'y' ?
                     <span>vs. {opp}</span>  : <span>@ {opp}</span>}
                   </div>
