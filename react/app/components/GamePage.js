@@ -5,16 +5,13 @@ var Link = require('react-router-dom').Link;
 function GamePage(props) {
   let team = props.selectedTeam;
   let opp = props.opp;
-  let game = props.game
-  let date = api.displayDate(game.date)
-
-  api.getGamePhase(date)
-
-  let pathname = `/teams/${team.id}/games/${game.id}/results`
+  let game = props.game;
+  let pathname = `/teams/${team.id}/games/${game.id}/results`;
+  console.log(game)
 
     return(
       <div className='game-container'>
-        <h2 className='game-date'>{date}</h2>
+        // <h2 className='game-date'></h2>
         <div className='game-location'>
           <h2>{game.location}</h2>
         </div>

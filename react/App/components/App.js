@@ -21,7 +21,8 @@ class App extends React.Component {
       selectedTeam:{},
       opponent:{},
       selectedGame:{},
-      phases:['New','Waxing Crescent','First Quarter','Waxing Gibbous','Full','Waning Gibbous','Last Quarter','Waning Crescent']
+      phases:['New','Waxing Crescent','First Quarter','Waxing Gibbous','Full','Waning Gibbous','Last Quarter','Waning Crescent'],
+      gamePhase:''
     }
     this.handleSelect = this.handleSelect.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -42,10 +43,14 @@ class App extends React.Component {
     })
   }
 
-  handleClick(team, game){
-    this.setState({
-      opponent:team,
-      selectedGame:game
+  handleClick(team, game, date){
+
+    api.getGamePhase(date).then((response) => {
+      this.setState({
+        gamePhase:response.curphase,
+        opponent:team,
+        selectedGame:game
+      })
     })
   }
 
@@ -66,10 +71,10 @@ class App extends React.Component {
               <ScheduleContainer allTeams={this.state.allTeams} selectedTeam={this.state.selectedTeam} handleClick={this.handleClick} />
             }/>
             <Route exact path='/teams/:team_id/games/:id' render={ () =>
-              <GamePage selectedTeam={this.state.selectedTeam} opp={this.state.opponent} game={this.state.selectedGame} />
+              <GamePage selectedTeam={this.state.selectedTeam} opp={this.state.opponent} game={this.state.selectedGame} handleClick={this.moonClick} />
             }/>
             <Route path='/teams/:team_id/games/:id/results' render={ (props) =>
-              <Results game={this.state.selectedGame} phases={this.state.phases}  />
+              <Results gamePhase={this.state.gamePhase} game={this.state.selectedGame} phases={this.state.phases}  />
             }/>
           </Switch>
         </div>
