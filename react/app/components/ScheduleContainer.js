@@ -19,11 +19,13 @@ function Game(props){
     let teams = props.allTeams;
     let games = props.games;
 
+
     return(
       <div>
         <h1 className='schedule-heading'>Select a Game...</h1>
         <ul className='game-grid'>
           {games.map((game) => {
+            let date = api.displayDate(game.date)
             let opponent = teams.filter((team) => {
               return game.opp === team.symbol
             });
@@ -32,8 +34,8 @@ function Game(props){
 
             return (
               <li key={game.id} className='game-item'>
-                <Link className='team-list' to={{pathname}} onClick={props.handleClick.bind(null,     opponent[0], game)}>
-                  <div className='date'>{api.displayDate(game.date)}</div>
+                <Link className='team-list' to={{pathname}} onClick={props.handleClick.bind(null,     opponent[0], game, date)}>
+                  <div className='date'>{date}</div>
                   <div>{game.home === 'y' ?
                     <span>vs. {opp}</span>  : <span>@ {opp}</span>}
                   </div>
