@@ -8,34 +8,28 @@ module.exports = {
         return response.data
       })
     },
-  // getTeamsInLeague: (league) => {
-  //   return getAllTeams().then((response) => {
-  //     return response.data.filter((team) => {
-  //         return team.league === league;
-  //       });
-  //     })
-  //   },
-  // getTeam: (id) => {
-  //   return getAllTeams().then((response) => {
-  //     return response.data.filter((team) => {
-  //       return team.id == id;
-  //     })
-  //   })
-  // },
   getGames: (id) => {
     let futureGamesPath = `http://localhost:3000/teams/${id}/futuregames`
     return axios.get(futureGamesPath).then((response) => {
       return response.data;
     })
+  },
+  displayDate: (date) => {
+    let newDate = [];
+    let d = date.split('');
+
+    if(Number(d[5])){
+      newDate.push(d[5], d[6],'/', d[8],d[9],'/',d[0], d[1], d[2], d[3]);
+    } else {
+      newDate.push(d[6],'/', d[8],d[9],'/',d[0], d[1], d[2], d[3]);
+    }
+    return newDate.join('')
+  },
+  getGamePhase: (date) => {
+    let pathname = `http://api.usno.navy.mil/rstt/oneday?date=${date}&loc=Washington, DC`
+
+    return axios.get(pathname).then((response) => {
+      return response.data
+    })
   }
-  // getGame: (gameId, teamId ) => {
-  //   let futureGamesPath = `http://localhost:3000/teams/${teamId}/futuregames`
-  //   return axios.get(futureGamesPath).then((response) => {
-  //     return response.data.filter((game) => {
-  //       return game.id == gameId
-  //
-  //
-  //     })
-  //   })
-  // }
 }
