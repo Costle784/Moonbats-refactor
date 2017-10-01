@@ -27,10 +27,18 @@ module.exports = {
     return newDate.join('')
   },
   getGamePhase: (date) => {
-    let pathname = `http://api.usno.navy.mil/rstt/oneday?date=${date}&loc=Washington, DC`
+    let pathname = `http://localhost:3000/moonphases?date=${date}`
 
     return axios.get(pathname).then((response) => {
       return response.data
     })
+  },
+  getPastGames: (id) => {
+    return id;
+    // let pathname = `http://localhost:3000/teams/${id}/pastgames`
+    // console.log(pathname)
+    // return axios.get(pathname).then((response) => {
+    //
+    // })
   }
 }

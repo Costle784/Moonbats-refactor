@@ -7,11 +7,11 @@ function GamePage(props) {
   let opp = props.opp;
   let game = props.game;
   let pathname = `/teams/${team.id}/games/${game.id}/results`;
-  console.log(game)
+
 
     return(
       <div className='game-container'>
-        // <h2 className='game-date'></h2>
+        <h2 className='game-date'>{game.date}</h2>
         <div className='game-location'>
           <h2>{game.location}</h2>
         </div>
@@ -26,7 +26,7 @@ function GamePage(props) {
             <p className='team-name'>{opp.name}</p>
           </div>
         </div>
-        <Link className='button moon-button' to={{pathname}}>Moon</Link>
+        <Link className='button moon-button' to={{pathname}} onClick={props.handleClick}>Moon</Link>
       </div>
 
     )

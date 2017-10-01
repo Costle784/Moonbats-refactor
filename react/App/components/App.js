@@ -11,6 +11,7 @@ var ScheduleContainer = require('./ScheduleContainer');
 var GamePage = require('./GamePage');
 var api = require('../utils/api');
 var Results = require('./Results');
+var MoonLoading = require('./MoonLoading');
 
 
 class App extends React.Component {
@@ -21,11 +22,13 @@ class App extends React.Component {
       selectedTeam:{},
       opponent:{},
       selectedGame:{},
-      phases:['New','Waxing Crescent','First Quarter','Waxing Gibbous','Full','Waning Gibbous','Last Quarter','Waning Crescent'],
-      gamePhase:''
+      matchingPhases:[],
+      gamePhase:'',
+      matchingGames:''
     }
     this.handleSelect = this.handleSelect.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.moonClick = this.moonClick.bind(this);
   }
 
   componentDidMount() {
@@ -37,22 +40,43 @@ class App extends React.Component {
       })
   }
 
+  //team select
   handleSelect(team) {
     this.setState({
       selectedTeam:team
     })
   }
 
-  handleClick(team, game, date){
-
+  //game select
+  handleClick(opponent, game, date){
     api.getGamePhase(date).then((response) => {
+
       this.setState({
-        gamePhase:response.curphase,
-        opponent:team,
-        selectedGame:game
+        opponent:opponent,
+        selectedGame:game,
+        matchingPhases: response,
+        gamePhase:parseInt(response[0].phase)
       })
     })
   }
+  // moon button
+  moonClick(id) {
+    id=this.state.selectedTeam.id
+
+    setTimeout( () => {this.setState({
+      matchingGames:id
+    })}, 3000);
+
+    // api.getPastGames(id).then((response) => {
+    //   this.setState({
+    //     matchingGames:response.data
+    //   })
+    // });
+
+  }
+
+
+
 
   render() {
 
@@ -73,9 +97,11 @@ class App extends React.Component {
             <Route exact path='/teams/:team_id/games/:id' render={ () =>
               <GamePage selectedTeam={this.state.selectedTeam} opp={this.state.opponent} game={this.state.selectedGame} handleClick={this.moonClick} />
             }/>
-            <Route path='/teams/:team_id/games/:id/results' render={ (props) =>
-              <Results gamePhase={this.state.gamePhase} game={this.state.selectedGame} phases={this.state.phases}  />
+            <Route path='/teams/:team_id/games/:id/results' render={ () =>
+              this.state.matchingGames ? <Results gamePhase={this.state.gamePhase}     game={this.state.selectedGame} phases={this.state.phases}  /> :
+              <MoonLoading />
             }/>
+
           </Switch>
         </div>
       </Router>

@@ -4,7 +4,7 @@ var Link = require('react-router-dom').Link;
 function Home(props) {
   return (
     <div className='home-container'>
-      <img src='http://www.pngmart.com/files/1/Baseball-Bat-Transparent-PNG.png' className='bats' alt='baeball bats link'></img>
+      <img src='http://www.pngmart.com/files/1/Baseball-Bat-Transparent-PNG.png' className='bats' alt='baseball bats'></img>
       <Link className='button begin-button' to='./teams'>
         Begin
       </Link>
