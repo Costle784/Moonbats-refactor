@@ -1,5 +1,5 @@
-var React = require('react');
-var PropTypes = require('prop-types');
+const React = require('react');
+const PropTypes = require('prop-types');
 
 class Loading extends React.Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class Loading extends React.Component {
   }
 
   componentDidMount() {
-    let stopper = `${this.props.text}...`;
+    let stopper = `...${this.props.text}...`;
 
     this.interval = window.setInterval(function() {
       if(this.state.text === stopper) {
@@ -20,7 +20,7 @@ class Loading extends React.Component {
       } else {
         this.setState(function(prevState) {
           return {
-            text: `${prevState.text}.`
+            text: `.${prevState.text}.`
           }
         })
       }
