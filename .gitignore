@@ -1,2 +1,3 @@
 node_modules
 dist
+moonbats_rails_api/log/development.log
