@@ -11,7 +11,7 @@ var ScheduleContainer = require('./ScheduleContainer');
 var GamePage = require('./GamePage');
 var api = require('../utils/api');
 var Results = require('./Results');
-var MoonLoading = require('./MoonLoading');
+var Loading = require('./Loading');
 
 
 class App extends React.Component {
@@ -65,7 +65,7 @@ class App extends React.Component {
 
     setTimeout( () => {this.setState({
       matchingGames:id
-    })}, 3000);
+    })}, 2500);
 
     // api.getPastGames(id).then((response) => {
     //   this.setState({
@@ -99,7 +99,7 @@ class App extends React.Component {
             }/>
             <Route path='/teams/:team_id/games/:id/results' render={ () =>
               this.state.matchingGames ? <Results gamePhase={this.state.gamePhase}     game={this.state.selectedGame} phases={this.state.phases}  /> :
-              <MoonLoading />
+              <Loading text='Contacting Moon' speed={170} />
             }/>
 
           </Switch>

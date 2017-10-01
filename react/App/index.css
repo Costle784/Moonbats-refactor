@@ -181,6 +181,12 @@ a {
   margin-top:75px;
 }
 
+.loading {
+  padding:30px;
+  text-align:center;
+  font-size:2em;
+}
+
 
 @keyframes slidein {
   from {
