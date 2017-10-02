@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 const React = require('react');
 const PropTypes = require('prop-types');
-=======
-var React = require('react');
-var PropTypes = require('prop-types');
->>>>>>> 6a814c3af8eab112c985ea19f0327017ca8a6d68
+
 
 class Loading extends React.Component {
   constructor(props) {
@@ -15,11 +11,7 @@ class Loading extends React.Component {
   }
 
   componentDidMount() {
-<<<<<<< HEAD
     let stopper = `...${this.props.text}...`;
-=======
-    let stopper = `${this.props.text}...`;
->>>>>>> 6a814c3af8eab112c985ea19f0327017ca8a6d68
 
     this.interval = window.setInterval(function() {
       if(this.state.text === stopper) {
@@ -29,11 +21,7 @@ class Loading extends React.Component {
       } else {
         this.setState(function(prevState) {
           return {
-<<<<<<< HEAD
             text: `.${prevState.text}.`
-=======
-            text: `${prevState.text}.`
->>>>>>> 6a814c3af8eab112c985ea19f0327017ca8a6d68
           }
         })
       }

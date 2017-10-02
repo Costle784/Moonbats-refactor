@@ -242,8 +242,8 @@ csv.each do |row|
   t.wl = row['wl']
   t.save
 end
-#
-<<<<<<< HEAD
+
+
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2015.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
@@ -254,7 +254,7 @@ csv.each do |row|
   t.wl = row['wl']
   t.save
 end
-=======
+
 # csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2015.csv'))
 # csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 # csv.each do |row|
@@ -265,7 +265,7 @@ end
 #   t.wl = row['wl']
 #   t.save
 # end
->>>>>>> 6a814c3af8eab112c985ea19f0327017ca8a6d68
+
 #
 # csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2014.csv'))
 # csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
