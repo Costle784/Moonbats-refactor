@@ -28,6 +28,7 @@ const GameSummary = (props) => {
           </div>
         </div>
         <Link className='button moon-button' to={{pathname}} onClick={props.handleClick}>Moon</Link>
+        <Link className='reset-link' to='/teams'>Reset</Link>
       </div>
 
     )

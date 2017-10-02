@@ -1,7 +1,6 @@
 const React = require('react');
 const PropTypes = require('prop-types');
 
-
 class Loading extends React.Component {
   constructor(props) {
     super(props);

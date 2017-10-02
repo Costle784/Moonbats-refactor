@@ -12,6 +12,7 @@ const GameSummary = require('./GameSummary');
 const api = require('../utils/api');
 const MoonResults = require('./MoonResults');
 const Loading = require('./Loading');
+const ResetButton = require('./ResetButton');
 
 
 class App extends React.Component {
@@ -58,8 +59,10 @@ class App extends React.Component {
     })
   }
   // moon button
-  moonClick(id) {
-    id=this.state.selectedTeam.id
+  moonClick() {
+    let id=this.state.selectedTeam.id
+
+    setTimeout(() => {
       api.getPastGames(id).then((response) => {
         let filteredGames = response.filter((game) => {
           let moonMatch = this.state.matchingPhases.find((phase) => {
@@ -71,7 +74,9 @@ class App extends React.Component {
           matchingGames: filteredGames
         })
       })
-    }
+    }, 2500)
+  }
+
   render() {
     return (
       <Router>
@@ -85,7 +90,9 @@ class App extends React.Component {
                 handleSelect={this.handleSelect} />
               }/>
             <Route exact path='/teams/:id/games' render={ () =>
-              <GameSelect allTeams={this.state.allTeams} selectedTeam={this.state.selectedTeam} handleClick={this.handleClick} />
+              <div>
+                <GameSelect allTeams={this.state.allTeams} selectedTeam={this.state.selectedTeam} handleClick={this.handleClick} />
+              </div>
             }/>
             <Route exact path='/teams/:team_id/games/:id' render={ () =>
               <GameSummary selectedTeam={this.state.selectedTeam} opp={this.state.opponent} game={this.state.selectedGame} handleClick={this.moonClick} />

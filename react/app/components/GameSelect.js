@@ -25,7 +25,10 @@ const Game = (props) => {
 
     return(
       <div>
-        <h1 className='schedule-heading'>Select a Game...</h1>
+        <div className='gameselect-heading'>
+          <h1 className='gameselect-title'>Select a Game...</h1>
+          <Link className='button' to='/teams'>Reset</Link>
+        </div>
         <ul className='game-grid'>
           {games.map((game) => {
             let date = game.date

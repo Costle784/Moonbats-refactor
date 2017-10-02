@@ -1,7 +1,7 @@
-var React = require('react');
-var Link = require('react-router-dom').Link;
+const React = require('react');
+const Link = require('react-router-dom').Link;
 
-function Home(props) {
+const Home = () => {
   return (
     <div className='home-container'>
       <img src='https://northwoodsleague.com/duluth-huskies/wp-content/themes/northwoodsleagueTeams-DuluthHuskies/img/baseball-nl-footer.png' className='bats' alt='baseball bats'></img>
