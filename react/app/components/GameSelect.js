@@ -3,6 +3,7 @@ const api = require('../utils/api');
 const helpers = require('../utils/helpers');
 const Link = require('react-router-dom').Link;
 const PropTypes = require('prop-types');
+const Loading = require('./Loading');
 
 const Logo = (props) => {
   return(
@@ -45,7 +46,7 @@ const Game = (props) => {
                   <div>{game.home === 'y' ?
                     <span>vs. {opp.name}</span>  : <span>@ {opp.name}</span>}
                   </div>
-                  <img className='minilogo' alt={`logo for ${opp.name}`} src={opp.logo}/>
+                  <img className='gameselect-logo' alt={`logo for ${opp.name}`} src={opp.logo}/>
                 </Link>
               </li>
             )
@@ -84,8 +85,11 @@ class GameSelect extends React.Component {
   render() {
     return (
       <div className='schedule-container'>
-        <Game team={this.props.selectedTeam} games={this.state.games} allTeams={this.props.allTeams} handleClick={this.props.handleClick} />
-        <Logo team={this.props.selectedTeam} />
+        {this.state.games === [] ? <Loading /> :
+        <div>
+          <Game team={this.props.selectedTeam} games={this.state.games} allTeams={this.props.allTeams} handleClick={this.props.handleClick} />
+          <Logo team={this.props.selectedTeam} />
+        </div>}
       </div>
     )
   }

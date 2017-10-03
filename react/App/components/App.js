@@ -14,7 +14,6 @@ const MoonResults = require('./MoonResults');
 const Loading = require('./Loading');
 const ResetButton = require('./ResetButton');
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -98,8 +97,10 @@ class App extends React.Component {
               <GameSummary selectedTeam={this.state.selectedTeam} opp={this.state.opponent} game={this.state.selectedGame} handleClick={this.moonClick} />
             }/>
             <Route path='/teams/:team_id/games/:id/results' render={ () =>
-              this.state.matchingGames ? <MoonResults gamePhase={this.state.gamePhase}     game={this.state.selectedGame} phases={this.state.phases}  /> :
-              <Loading text='Contacting Moon' speed={170} />
+              this.state.matchingGames ?
+                <MoonResults gamePhase={this.state.gamePhase} team={this.state.selectedTeam} game={this.state.selectedGame} phases={this.state.phases} opp={this.state.opponent}  />
+              :
+                <Loading text='Contacting Moon' speed={170} />
             }/>
           </Switch>
         </div>

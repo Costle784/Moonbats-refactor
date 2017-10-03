@@ -43,7 +43,7 @@ const TeamGrid = (props) => {
           <li key={team.symbol} className='team-item'>
             <Link onClick={props.handleSelect.bind(null,team)} className='team-list' to={{pathname}} >
               <img
-                className='logo'
+                className='team-select-logo'
                 src={team.logo}
                 alt={`logo for the ${team.name}`}
               />
