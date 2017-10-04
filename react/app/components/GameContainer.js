@@ -10,14 +10,14 @@ const GameContainer = (props) => {
   let date = helpers.formatDate(game.date);
 
   return (
-    <div className='schedule-container'>
+    <div className='centered-container'>
       <div className='game-container'>
         <div className='team-list'>
           <img className='game-container-logo' src={team.logo} alt={`${team.name} logo`} />
           <p className='team-name'>{team.name}</p>
         </div>
         <ul>
-          <li className='game-date'>{game.date}</li>
+          <li className='game-date'>{date}</li>
           <li className='game-location'>{game.location}</li>
           <br />
           <li className='vs'>vs</li>
@@ -28,7 +28,7 @@ const GameContainer = (props) => {
         </div>
       </div>
       {props.children}
-    </div>  
+    </div>
   )
 }
 

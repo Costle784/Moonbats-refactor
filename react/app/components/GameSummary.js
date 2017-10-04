@@ -12,8 +12,8 @@ const GameSummary = (props) => {
   return(
     <div className='game-summary-container'>
       <GameContainer team={team} game={game} opp={props.opp}>
-        <Link className='button moon-button' to={{pathname}} onClick={props.handleClick}>Moon</Link>
-        <Link className='reset-link' to='/teams'>Reset</Link>
+        <Link className='moon-button' to={{pathname}} onClick={props.handleClick}>Moon</Link>
+        <Link className='reset-button' to='/teams'>Reset</Link>
       </GameContainer>
     </div>
   )
