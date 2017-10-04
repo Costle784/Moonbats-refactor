@@ -12,7 +12,6 @@ const GameSummary = require('./GameSummary');
 const api = require('../utils/api');
 const MoonResults = require('./MoonResults');
 const Loading = require('./Loading');
-const ResetButton = require('./ResetButton');
 
 class App extends React.Component {
   constructor(props) {
@@ -24,11 +23,13 @@ class App extends React.Component {
       selectedGame:{},
       matchingPhases:[],
       gamePhase:'',
-      matchingGames:''
+      matchingGames:[],
+      moonSwitch:true
     }
     this.handleSelect = this.handleSelect.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.moonClick = this.moonClick.bind(this);
+    this.moonSwitch = this.moonSwitch.bind(this);
   }
 
   componentDidMount() {
@@ -61,19 +62,30 @@ class App extends React.Component {
   moonClick() {
     let id=this.state.selectedTeam.id
 
+    api.getPastGames(id).then((response) => {
+      let filteredGames = response.filter((game) => {
+        let moonMatch = this.state.matchingPhases.find((phase) => {
+          return game.date === phase.date
+        })
+        return this.state.opponent.symbol === game.opp && moonMatch
+      })
+      this.setState({
+        matchingGames: filteredGames
+      })
+    })
     setTimeout(() => {
-      api.getPastGames(id).then((response) => {
-        let filteredGames = response.filter((game) => {
-          let moonMatch = this.state.matchingPhases.find((phase) => {
-            return game.date === phase.date
-          })
-          return this.state.opponent.symbol === game.opp && moonMatch
-        })
-        this.setState({
-          matchingGames: filteredGames
-        })
+      this.setState({
+        moonSwitch:false
       })
     }, 2500)
+  }
+
+  moonSwitch() {
+    if(!this.state.moonSwitch) {
+      this.setState({
+        moonSwitch:true
+      })
+    }
   }
 
   render() {
@@ -97,8 +109,8 @@ class App extends React.Component {
               <GameSummary selectedTeam={this.state.selectedTeam} opp={this.state.opponent} game={this.state.selectedGame} handleClick={this.moonClick} />
             }/>
             <Route path='/teams/:team_id/games/:id/results' render={ () =>
-              this.state.matchingGames ?
-                <MoonResults gamePhase={this.state.gamePhase} team={this.state.selectedTeam} game={this.state.selectedGame} phases={this.state.phases} opp={this.state.opponent}  />
+              !this.state.moonSwitch ?
+                <MoonResults gamePhase={this.state.gamePhase} team={this.state.selectedTeam} game={this.state.selectedGame} opp={this.state.opponent} games={this.state.matchingGames} moonSwitch={this.moonSwitch}  />
               :
                 <Loading text='Contacting Moon' speed={170} />
             }/>

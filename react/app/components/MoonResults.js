@@ -19,6 +19,9 @@ class MoonResults extends React.Component {
     })
   }
 
+  componentWillUnmount() {
+    this.props.moonSwitch();
+  }
 
   render() {
     let gameTally = this.props.games.reduce((tally,game) => {
@@ -30,7 +33,7 @@ class MoonResults extends React.Component {
     }, {wins:0, total:0});
 
     console.log(gameTally)
-    let percentage = `%${Math.round(gameTally.wins / gameTally.total * 100)}`
+    let percentage = `${Math.round(gameTally.wins / gameTally.total * 100)}%`
 
 
     let moonPhase = moonphases.find((phase) => {
@@ -47,10 +50,10 @@ class MoonResults extends React.Component {
             <hr className='hr' />
             <p className='phase-name'>{moonPhase.phase} Moon</p>
             <div className='moon-info'>
-            <img src={moonPhase.img} alt={`photo of ${moonPhase.phase}`} className='moon-image' />
+              <img src={moonPhase.img} alt={`photo of ${moonPhase.phase}`} className='moon-image' />
               {!this.props.games.length ?
-                <p>These two teams have never played on a {moonPhase.phase} moon. Make another selection</p> :
-                <p className='moongame-info'>The {this.props.team.name} have a winning percentage of {percentage} against the {this.props.opp.name} on a {moonPhase.phase} moon</p>}
+                <p className='moongame-info'>These two teams have never played on a {moonPhase.phase} moon. Make another selection</p> :
+                <p className='moongame-info'>The {this.props.team.name} have won {gameTally.wins} of {gameTally.total} ({percentage}) against the {this.props.opp.name} on a {moonPhase.phase} moon</p>}
             </div>
           </div>
         </GameContainer>

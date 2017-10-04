@@ -31,6 +31,10 @@ a:hover {
   animation-name: slidein;
 }
 
+.centered-container {
+  text-align: center;
+}
+
 .header {
   text-align: center;
   background: url('https://allwatches.com.sg/wp-content/uploads/2017/06/Moon-phases.png');
@@ -50,10 +54,11 @@ a:hover {
   width:150px;
 }
 
-.button {
+/*buttons */
+.begin-button {
   color: #000;
   border:1px solid #696969;
-  background: #FAEBD7;
+  background:#FFF;
   font-size: 16px;
   border-radius: 3px;
   width: 110px;
@@ -61,20 +66,43 @@ a:hover {
   padding: 8px;
   box-shadow: 0px 5px 100px #fff;
   display:block;
+  margin:0 auto;
+  margin-top:50px;
 }
 
-.button:hover:enabled {
+.begin-button:hover:enabled {
   color:#696969;
   text-decoration: none;
 }
 
-.button:active {
+.begin-button:active {
   transform: translateY(1px);
 }
 
-.begin-button {
-  margin:0 auto;
-  margin-top: 50px;
+.moon-button {
+  margin:50px auto;
+  font-size:2em;
+  padding: 15px 25px;
+  box-shadow: 0 8px #999;
+  text-align:center;
+  -webkit-animation-name: colorswitch;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  display:block;
+  border-radius:15px;
+  width:80px;
+  color:#FFF;
+}
+
+.moon-button:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.reset-button {
+  color:red;
+  font-size:1.5em;
+  padding:8px;
 }
 
 .leagues {
@@ -91,7 +119,7 @@ a:hover {
   cursor:pointer;
 }
 
-.team-grid {
+.team-grid, .game-grid {
   display:flex;
   flex-wrap:wrap;
   justify-content: space-around;
@@ -112,16 +140,6 @@ a:hover {
   height:150px;
 }
 
-.schedule-container {
-  text-align:center;
-}
-
-.game-grid {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content: space-around;
-}
-
 .date {
   padding:5px;
 }
@@ -131,16 +149,16 @@ a:hover {
   padding:5px;
 }
 
+.gameselect-heading {
+  display:flex;
+  margin:20px;
+  justify-content: center;
+}
+
 .gameselect-title {
   font-size:2.5em;
   color:rgb(255,239,104);
-  width:45%;
-  text-align:left;
-}
-
-.gameselect-heading {
-  display:flex;
-  margin:40px;
+  margin-right:40px;
 }
 
 .game-item {
@@ -183,49 +201,51 @@ a:hover {
   text-align:center;
 }
 
-.moon-button {
-  margin:50px auto;
-  font-size:2em;
-  padding: 15px 25px;
-  box-shadow: 0 8px #999;
-  text-align:center;
-  -webkit-animation-name: colorswitch;
-  -webkit-animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
-}
-
-.moon-button:active {
-  box-shadow: 0 5px #666;
-  transform: translateY(5px);
-}
-
-.reset-link {
-  margin:0 auto;
-  color:#FFF;
-  font-size:1.5em;
-}
-
 .loading {
   padding:30px;
   text-align:center;
   font-size:2em;
 }
 
-.results-container {
-  text-align: center;
-}
-
 .game-container {
   display:flex;
   justify-content: space-around;
   align-items: flex-end;
+  flex-wrap:wrap;
 }
 
 .game-container-logo {
   width:125px;
 }
 
+.moon-image {
+  width:200px;
+  height:200px;
+}
 
+.moon-info {
+  display:flex;
+  justify-content: center;
+}
+
+.phase-name{
+  text-align:center;
+  font-size:2.5em;
+  padding-top:15px;
+  color:#FFF;
+}
+
+.hr {
+  width:60%;
+}
+
+.moongame-info {
+  width:30%;
+  padding-top:40px;
+  line-height: normal;
+  color:rgb(255,239,104);
+  margin:10px;
+}
 
 
 @keyframes colorswitch {
