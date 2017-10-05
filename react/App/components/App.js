@@ -14,8 +14,8 @@ const MoonResults = require('./MoonResults');
 const Loading = require('./Loading');
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       allTeams:[],
       selectedTeam:{},

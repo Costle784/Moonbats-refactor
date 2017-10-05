@@ -32,15 +32,11 @@ class MoonResults extends React.Component {
       return tally
     }, {wins:0, total:0});
 
-    console.log(gameTally)
     let percentage = `${Math.round(gameTally.wins / gameTally.total * 100)}%`
-
 
     let moonPhase = moonphases.find((phase) => {
       return phase.phaseNum === this.props.gamePhase
-    })
-
-
+    });
 
     return(
       <div className='centered-container'>
@@ -58,9 +54,17 @@ class MoonResults extends React.Component {
           </div>
         </GameContainer>
       </div>
-
     )
   }
+}
+
+MoonResults.propTypes = {
+  gamePhase:PropTypes.number.isRequired,
+  team:PropTypes.object.isRequired,
+  game:PropTypes.object.isRequired,
+  opp:PropTypes.object.isRequired,
+  games:PropTypes.array.isRequired,
+  moonSwitch:PropTypes.func.isRequired
 }
 
 
