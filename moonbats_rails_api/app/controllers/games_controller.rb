@@ -4,11 +4,4 @@ class GamesController < ApplicationController
     @games = @team.games
     render json: @games
   end
-
-  def show
-    @team = Team.find(params[:team_id])
-    @game = @team.games.find(params[:id])
-    render json: @game
-  end
-
 end

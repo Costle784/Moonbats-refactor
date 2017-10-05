@@ -232,6 +232,17 @@ csv.each do |row|
   t.save
 end
 
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2017.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = Game.new
+  t.date = DateTime.strptime(row['date'], '%A %b %d').change(year:2016)
+  t.team = Team.find_by(symbol: row['team'])
+  t.opp = row['opp']
+  t.wl = row['wl']
+  t.save
+end
+
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2016.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
@@ -266,27 +277,40 @@ csv.each do |row|
   t.save
 end
 
-# csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2013.csv'))
-# csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-# csv.each do |row|
-#   t = Game.new
-#   t.date = DateTime.strptime(row['date'], '%A %b %d').change(year:2013)
-#   t.team = Team.find_by(symbol: row['team'])
-#   t.opp = row['opp']
-#   t.wl = row['wl']
-#   t.save
-# end
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2013.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = Game.new
+  t.date = DateTime.strptime(row['date'], '%A %b %d').change(year:2013)
+  t.team = Team.find_by(symbol: row['team'])
+  t.opp = row['opp']
+  t.wl = row['wl']
+  t.save
+end
 #
-# csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2012.csv'))
-# csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-# csv.each do |row|
-#   t = Game.new
-#   t.date = DateTime.strptime(row['date'], '%A %b %d').change(year:2012)
-#   t.team = Team.find_by(symbol: row['team'])
-#   t.opp = row['opp']
-#   t.wl = row['wl']
-#   t.save
-# end
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2012.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = Game.new
+  t.date = DateTime.strptime(row['date'], '%A %b %d').change(year:2012)
+  t.team = Team.find_by(symbol: row['team'])
+  t.opp = row['opp']
+  t.wl = row['wl']
+  t.save
+end
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2011.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = Game.new
+  t.date = DateTime.strptime(row['date'], '%A %b %d').change(year:2012)
+  t.team = Team.find_by(symbol: row['team'])
+  t.opp = row['opp']
+  t.wl = row['wl']
+  t.save
+end
+
+
 #
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'moonphases.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
