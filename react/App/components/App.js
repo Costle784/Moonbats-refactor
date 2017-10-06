@@ -77,7 +77,7 @@ class App extends React.Component {
       this.setState({
         moonSwitch:false
       })
-    }, 2500)
+    }, 2000)
   }
 
   moonSwitch() {
