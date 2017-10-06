@@ -211,7 +211,6 @@ a:hover {
   display:flex;
   justify-content: space-around;
   align-items: flex-end;
-  flex-wrap:wrap;
 }
 
 .game-container-logo {
@@ -221,6 +220,7 @@ a:hover {
 .moon-image {
   width:200px;
   height:200px;
+  padding:5px;
 }
 
 .moon-info {

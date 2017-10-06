@@ -69,7 +69,6 @@ class App extends React.Component {
         })
         return this.state.opponent.symbol === game.opp && moonMatch
       })
-      console.log(filteredGames)
       this.setState({
         matchingGames: filteredGames
       })
