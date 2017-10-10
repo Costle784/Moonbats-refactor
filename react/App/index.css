@@ -87,7 +87,7 @@ a:hover {
 }
 
 .moon-button {
-  margin:50px auto;
+  margin:5px auto 50px auto;
   font-size:2em;
   padding: 15px 25px;
   box-shadow: 0 8px #999;
