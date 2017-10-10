@@ -20,6 +20,19 @@ a:hover {
   cursor:pointer;
 }
 
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.warning {
+  font-size: 1.5em;
+  color:rgb(255, 0, 0);
+  padding:10px;
+}
+
 .container {
   max-width:1200px;
   margin:0 auto;
@@ -57,7 +70,7 @@ a:hover {
 .home-description {
   font-size: 2em;
   padding: 15px;
-  margin:75px auto 10px auto;
+  margin:50px auto 10px auto;
   width:450px;
   color:rgb(255,239,104);
 }
@@ -293,6 +306,20 @@ a:hover {
   display:block;
 }
 
+.moonphase-chart {
+  width:150px;
+}
+
+.moonphase-chart-container{
+  position:absolute;
+  left:0;
+  bottom:0;
+  padding:5px;
+}
+
+.moonphase-chart-thumb {
+  padding:5px;
+}
 @keyframes colorswitch {
   from {
     background-color:rgb(255,239,104);

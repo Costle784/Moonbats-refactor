@@ -43,11 +43,17 @@ class MoonResults extends React.Component {
 
     return(
       <div className='centered-container'>
-      <div className='result-gameinfo-container'>
-        <p className='result-gameinfo'>{this.props.team.name} vs {this.props.opp.name}</p>
-        <p className='result-gameinfo'>{helpers.formatDate(this.props.game.date)}</p>
-        <p className='result-gameinfo'>{this.props.game.location}</p>
-      </div>
+        <div className='moonphase-chart-container'>
+          <p className='moonphase-chart-thumb'>click to enlarge</p>
+          <Link to='http://i49.servimg.com/u/f49/16/59/69/37/moonph10.jpg' target='_blank'>
+            <img src={'http://i49.servimg.com/u/f49/16/59/69/37/moonph10.jpg'} className='moonphase-chart' />
+          </Link>
+        </div>
+        <div className='result-gameinfo-container'>
+          <p className='result-gameinfo'>{this.props.team.name} vs {this.props.opp.name}</p>
+          <p className='result-gameinfo'>{helpers.formatDate(this.props.game.date)}</p>
+          <p className='result-gameinfo'>{this.props.game.location}</p>
+        </div>
         <div className='game-container moongame-container'>
           {!this.props.games.length ?
             <p className='no-result'>These two teams have never played on a {moonPhase.phase} moon. Make another selection</p> :
@@ -62,11 +68,11 @@ class MoonResults extends React.Component {
               </div>
               :
               <div className='results-item winner'>
-                <h1 className='results-titles'>Winner:</h1>
+                <h1 className='results-titles'>Winner</h1>
                 <p className='team-name'>{this.props.opp.name}</p>
                 <img src={this.props.opp.logo} className='team-select-logo' alt={`${this.props.opp.name} logo`} />
               </div>
-            }
+          }
           <div className='results-item'>
             <h1 className='results-titles'>{moonPhase.phase} Moon</h1>
             <img src={moonPhase.img} alt={`photo of ${moonPhase.phase}`} className='team-select-logo moon-image' />
@@ -76,9 +82,10 @@ class MoonResults extends React.Component {
           <p className='result-text'>
             The {this.props.team.name} have won {gameTally.wins} of {gameTally.total} ({percentage}) against the {this.props.opp.name} on a {moonPhase.phase} moon
           </p>
-        </div>
         <p><Link className='reset-button results-reset' to='/teams'> &#8592; Back to Teams</Link></p>
-      </div>
+        </div>
+
+    </div>
     )
   }
 }

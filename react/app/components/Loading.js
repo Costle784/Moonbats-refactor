@@ -50,28 +50,4 @@ Loading.defaultProps = {
   speed: 200
 }
 
-// <div className='centered-container'>
-
-  //   <h1>Winner:</h1>
-  //   <h2>hello</h2>
-  //   // {ratio > 50 ?
-  //   //   <img src={this.props.team.logo}> :
-  //   //   <img src={this.props.opp.logo}>
-  //   // }
-  //     // <div className='centered-container'>
-  //     //   <Link className='reset-button' to='/teams'>Reset</Link>
-  //     //   <hr className='hr' />
-  //     //   <p className='phase-name'>{moonPhase.phase} Moon</p>
-  //     //   <div className='moon-info'>
-  //     //     <img src={moonPhase.img} alt={`photo of ${moonPhase.phase}`} className='moon-image' />
-  //     //     {!this.props.games.length ?
-  //     //       <p className='moongame-info'>These two teams have never played on a {moonPhase.phase} moon. Make another selection</p> :
-  //     //       <p className='moongame-info'>The {this.props.team.name} have won {gameTally.wins} of {gameTally.total} ({percentage}) against the {this.props.opp.name} on a {moonPhase.phase} moon</p>}
-  //     //   </div>
-
-  // .moongame-info {
-  //   padding:10px;
-  //   font-size:1em;
-  // }
-
 module.exports = Loading;
