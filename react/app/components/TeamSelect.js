@@ -87,6 +87,9 @@ class TeamSelect extends React.Component {
   render() {
     return (
       <div>
+        <div className='gameselect-heading'>
+          <h1 className='gameselect-title'>Select a team to view 2018 schedule...</h1>
+        </div>
         <LeagueNav
           league={this.state.selectedLeague}
           onSelect={this.updateLeague}

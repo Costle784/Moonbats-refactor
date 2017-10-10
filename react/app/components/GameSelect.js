@@ -33,9 +33,12 @@ class GameSelect extends React.Component {
       <div>
         {!this.state.games ? <Loading /> :
           <div>
+            <Link className='reset-button' to='/teams'> &#8592; Back to Teams</Link>
+            <div className='selectedteam-item'>
+              <img className='team-select-logo' src={this.props.selectedTeam.logo} />
+            </div>
             <div className='gameselect-heading'>
               <h1 className='gameselect-title'>Select a Game...</h1>
-              <Link className='reset-button' to='/teams'>Reset</Link>
             </div>
             <ul className='game-grid'>
               {games.map((game) => {

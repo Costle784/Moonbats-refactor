@@ -54,6 +54,14 @@ a:hover {
   width:150px;
 }
 
+.home-description {
+  font-size: 2em;
+  padding: 15px;
+  margin:75px auto 10px auto;
+  width:450px;
+  color:rgb(255,239,104);
+}
+
 /*buttons */
 .begin-button {
   color: #000;
@@ -64,10 +72,9 @@ a:hover {
   width: 110px;
   text-align: center;
   padding: 8px;
-  box-shadow: 0px 5px 100px #fff;
+  box-shadow: 0px 5px 100px #FFF;
   display:block;
   margin:0 auto;
-  margin-top:50px;
 }
 
 .begin-button:hover:enabled {
@@ -132,16 +139,16 @@ a:hover {
 }
 
 .team-item:hover, .game-item:hover {
-  box-shadow: 0px 0px 5px #fff;
+  box-shadow: 0px 0px 5px #FFF;
 }
 
 .team-select-logo {
-  width: 150px;
-  height:150px;
+  width:150px;
 }
 
 .date {
   padding:5px;
+  font-size: 1.5em;
 }
 
 .gameselect-logo {
@@ -152,13 +159,12 @@ a:hover {
 .gameselect-heading {
   display:flex;
   margin:20px;
-  justify-content: center;
 }
 
 .gameselect-title {
   font-size:2.5em;
   color:rgb(255,239,104);
-  margin-right:40px;
+  margin:0 auto;
 }
 
 .game-item {
@@ -171,6 +177,10 @@ a:hover {
   justify-content: space-around;
   align-items:flex-end;
   flex-wrap:wrap;
+}
+
+.selectedteam-item {
+  text-align: center;
 }
 
 .vs {
@@ -194,6 +204,7 @@ a:hover {
   text-align:center;
   font-size:1.5em;
   color:rgb(255,239,104);
+  padding:5px;
 }
 
 .team-list {
@@ -210,17 +221,15 @@ a:hover {
 .game-container {
   display:flex;
   justify-content: space-around;
-  align-items: flex-end;
+  box-shadow: 0px 0px 5px #FFF;
+}
+
+.moongame-container {
+  box-shadow:none;
 }
 
 .game-container-logo {
   width:125px;
-}
-
-.moon-image {
-  width:200px;
-  height:200px;
-  padding:5px;
 }
 
 .moon-info {
@@ -228,25 +237,61 @@ a:hover {
   justify-content: center;
 }
 
-.phase-name{
-  text-align:center;
-  font-size:2.5em;
-  padding-top:15px;
-  color:#FFF;
-}
-
 .hr {
   width:60%;
 }
 
-.moongame-info {
+.no-result {
   width:30%;
-  padding-top:40px;
   line-height: normal;
+  margin:20px;
   color:rgb(255,239,104);
-  margin:10px;
+  padding:20px;
+  font-size:1.5em;
+  order:1;
 }
 
+.result-text {
+  color:rgb(255,239,104);
+  font-size:1.5em;
+  width:50%;
+  margin:20px auto auto auto;
+}
+
+.results-titles {
+  font-size:2em;
+  padding:10px;
+  color:red;
+}
+
+.results-item {
+  width:350px;
+  text-align:center;
+}
+
+.moon-image {
+  padding-top:10px;
+}
+
+.winner {
+  order:1;
+}
+
+.result-gameinfo {
+  padding:5px;
+  font-size:1.2em;
+}
+
+.result-gameinfo-container {
+  box-shadow: 0px 0px 5px #FFF;
+  width:500px;
+  margin:0 auto;
+}
+
+.results-reset {
+  margin:20px;
+  display:block;
+}
 
 @keyframes colorswitch {
   from {
