@@ -62,7 +62,7 @@ class MoonResults extends React.Component {
 
               ratio > .5 ?
               <div className='results-item winner'>
-                <h1 className='results-titles'>Winner:</h1>
+                <h1 className='results-titles'>Winner</h1>
                 <p className='team-name'>{this.props.team.name}</p>
                 <img src={this.props.team.logo} alt={`${this.props.team.name} logo`} className='team-select-logo' />
               </div>
