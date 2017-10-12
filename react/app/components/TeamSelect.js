@@ -64,7 +64,7 @@ class TeamSelect extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedLeague: 'NL',
+      selectedLeague:'NL',
       teams: ''
     }
     this.updateLeague = this.updateLeague.bind(this);
@@ -75,13 +75,25 @@ class TeamSelect extends React.Component {
   }
 
   updateLeague(league) {
-    let leagueTeams = this.props.allTeams.filter((team) => {
-      return league === team.league;
-    })
-    this.setState({
-      selectedLeague: league,
-      teams:leagueTeams
-    })
+    if(this.props.allTeams.length === 0) {
+      api.getAllTeams().then((response) => {
+        let leagueTeams = response.filter((team) => {
+          return league === team.league;
+        })
+        this.setState({
+          selectedLeague: league,
+          teams: leagueTeams
+        })
+      })
+    } else {
+      let leagueTeams = this.props.allTeams.filter((team) => {
+        return league === team.league;
+      })
+      this.setState({
+        selectedLeague: league,
+        teams: leagueTeams
+      })
+    }
   }
 
   render() {
