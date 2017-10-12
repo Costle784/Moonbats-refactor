@@ -2,7 +2,9 @@ const React = require('react');
 const NavLink = require('react-router-dom').NavLink;
 const Link = require('react-router-dom').Link;
 const api = require('../utils/api');
+const helpers = require('../utils/helpers');
 const PropTypes = require('prop-types');
+const Loading = require('./Loading');
 
 
 //Nav
@@ -35,24 +37,22 @@ LeagueNav.propTypes = {
 
 const TeamGrid = (props) => {
   return (
-    <ul className='team-grid'>
+    <div className='team-grid'>
       {props.teams.map(function(team) {
         let pathname = `/teams/${team.id}/games`
 
         return (
-          <li key={team.symbol} className='team-item'>
-            <Link onClick={props.handleSelect.bind(null,team)} className='team-list' to={{pathname}} >
+            <Link key={team.symbol} onClick={props.handleSelect.bind(null,team)} to={{pathname}}    className='team-item'>
               <img
-                className='team-select-logo'
+                className='teamselect-logo'
                 src={team.logo}
                 alt={`logo for the ${team.name}`}
               />
               <div>{team.name}</div>
             </Link>
-          </li>
         )
       })}
-    </ul>
+    </div>
   )
 }
 
@@ -76,19 +76,15 @@ class TeamSelect extends React.Component {
 
   updateLeague(league) {
     if(this.props.allTeams.length === 0) {
-      api.getAllTeams().then((response) => {
-        let leagueTeams = response.filter((team) => {
-          return league === team.league;
-        })
+      api.getAllTeams().then((teamArray) => {
+        let leagueTeams = helpers.getTeamsInLeague(teamArray, league);
         this.setState({
           selectedLeague: league,
           teams: leagueTeams
         })
       })
     } else {
-      let leagueTeams = this.props.allTeams.filter((team) => {
-        return league === team.league;
-      })
+      let leagueTeams = helpers.getTeamsInLeague(this.props.allTeams, league)
       this.setState({
         selectedLeague: league,
         teams: leagueTeams
@@ -98,16 +94,14 @@ class TeamSelect extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className='gameselect-heading'>
-          <h1 className='gameselect-title'>Select a team to view 2018 schedule...</h1>
-        </div>
+      <div className='centered-container'>
+        <h1 className='teamselect-title'>Select a team to view 2018 schedule...</h1>
         <LeagueNav
           league={this.state.selectedLeague}
           onSelect={this.updateLeague}
         />
         {this.state.teams === '' ?
-          <p>Loading</p> :
+          <Loading /> :
           <TeamGrid teams={this.state.teams} handleSelect={this.props.handleSelect} />}
       </div>
     )

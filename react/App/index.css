@@ -22,6 +22,7 @@ a:hover {
 
 footer {
   text-align:center;
+  padding:5px;
 }
 
 .warning {
@@ -36,6 +37,7 @@ footer {
   flex-direction:column;
   align-items:center;
   min-height:100vh;
+  margin:0 auto;
 }
 
 .home-container{
@@ -53,6 +55,7 @@ footer {
 
 .centered-container {
   text-align: center;
+  width:100%;
 }
 
 .header {
@@ -98,13 +101,12 @@ footer {
   margin:0 auto;
 }
 
-.begin-button:hover:enabled {
+.begin-button:hover {
   color:#696969;
-  text-decoration: none;
 }
 
 .begin-button:active {
-  transform: translateY(1px);
+  transform: translateY(2px);
 }
 
 .moon-button {
@@ -131,6 +133,7 @@ footer {
   color:red;
   font-size:1.5em;
   padding:8px;
+  display:block;
 }
 
 .leagues {
@@ -140,7 +143,8 @@ footer {
 }
 
 .league {
-  padding:30px;
+  margin:20px;
+  padding:10px;
 }
 
 .league:hover {
@@ -157,13 +161,14 @@ footer {
   margin:20px;
   text-align:center;
   width:200px;
+  padding:5px;
 }
 
 .team-item:hover, .game-item:hover {
   box-shadow: 0px 0px 5px #FFF;
 }
 
-.team-select-logo {
+.teamselect-logo {
   width:150px;
 }
 
@@ -177,15 +182,10 @@ footer {
   padding:5px;
 }
 
-.gameselect-heading {
-  display:flex;
-  margin:20px;
-}
-
-.gameselect-title {
+.teamselect-title {
   font-size:2.5em;
   color:rgb(255,239,104);
-  margin:0 auto;
+  padding:20px;
 }
 
 .game-item {
@@ -198,10 +198,6 @@ footer {
   justify-content: space-around;
   align-items:flex-end;
   flex-wrap:wrap;
-}
-
-.selectedteam-item {
-  text-align: center;
 }
 
 .vs {
@@ -228,11 +224,6 @@ footer {
   padding:5px;
 }
 
-.team-list {
-  width:300px;
-  text-align:center;
-}
-
 .loading {
   padding:30px;
   text-align:center;
@@ -243,6 +234,9 @@ footer {
   display:flex;
   justify-content: space-around;
   box-shadow: 0px 0px 5px #FFF;
+  flex-wrap:wrap;
+  width:85%;
+  margin:0 auto;
 }
 
 .moongame-container {
@@ -251,6 +245,10 @@ footer {
 
 .game-container-logo {
   width:125px;
+}
+
+.team-list {
+  width:250px;
 }
 
 .moon-info {
@@ -273,10 +271,8 @@ footer {
 }
 
 .result-text {
-  color:rgb(255,239,104);
   font-size:1.5em;
-  width:50%;
-  margin:20px auto auto auto;
+  margin:40px auto 15px auto;
 }
 
 .results-titles {
@@ -306,7 +302,7 @@ footer {
 .result-gameinfo-container {
   box-shadow: 0px 0px 5px #FFF;
   width:500px;
-  margin:0 auto;
+  margin:5px auto 15px auto;
 }
 
 .results-reset {
@@ -319,10 +315,7 @@ footer {
 }
 
 .moonphase-chart-container{
-  position:absolute;
-  left:0;
-  bottom:0;
-  padding:5px;
+  text-align:left;
 }
 
 .moonphase-chart-thumb {

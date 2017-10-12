@@ -10,13 +10,11 @@ const GameSummary = (props) => {
   let pathname = `/teams/${team.id}/games/${game.id}/results`;
 
   return(
-    <div className='game-summary-container'>
       <GameContainer team={team} game={game} opp={props.opp}>
         <p className='result-text'>Click for results</p>
         <Link className='moon-button' to={{pathname}} onClick={props.handleClick}>Moon</Link>
         <Link className='reset-button' to='/teams'> &#8592; Back to Teams</Link>
       </GameContainer>
-    </div>
   )
 }
 

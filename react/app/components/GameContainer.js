@@ -13,7 +13,7 @@ const GameContainer = (props) => {
     <div className='centered-container'>
       <div className='game-container'>
         <div className='team-list'>
-          <img className='game-container-logo' src={team.logo} alt={`${team.name} logo`} />
+          <img className='teamselect-logo' src={team.logo} alt={`${team.name} logo`} />
           <p className='team-name'>{team.name}</p>
         </div>
         <ul>
@@ -23,7 +23,7 @@ const GameContainer = (props) => {
           <li className='vs'>vs</li>
         </ul>
         <div className='team-list'>
-          <img className='game-container-logo' src={opp.logo} alt={`${opp.name} logo`} />
+          <img className='teamselect-logo' src={opp.logo} alt={`${opp.name} logo`} />
           <p className='team-name'>{opp.name}</p>
         </div>
       </div>

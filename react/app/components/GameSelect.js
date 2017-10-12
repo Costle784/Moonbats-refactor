@@ -30,16 +30,13 @@ class GameSelect extends React.Component {
     let teams = this.props.allTeams;
 
     return (
-      <div>
+      <div className='centered-container'>
         {!this.state.games ? <Loading /> :
           <div>
             <Link className='reset-button' to='/teams'> &#8592; Back to Teams</Link>
-            <div className='selectedteam-item'>
-              <img className='team-select-logo' src={this.props.selectedTeam.logo} />
-            </div>
-            <div className='gameselect-heading'>
-              <h1 className='gameselect-title'>Select a Game...</h1>
-            </div>
+            <img className='teamselect-logo' src={this.props.selectedTeam.logo} />
+            <h1 className='teamselect-title'>Select a Game...</h1>
+
             <ul className='game-grid'>
               {games.map((game) => {
                 let date = game.date
@@ -51,7 +48,7 @@ class GameSelect extends React.Component {
 
                 return (
                   <li key={game.id} className='game-item'>
-                    <Link className='team-list' to={{pathname}} onClick={this.props.handleClick.bind(null,     opp, game, date)}>
+                    <Link to={{pathname}} onClick={this.props.handleClick.bind(null, opp, game, date)}>
                       <div className='date'>{helpers.formatDate(date)}</div>
                       <div>{game.home === 'y' ?
                         <span>vs. {opp.name}</span>  : <span>@ {opp.name}</span>}
@@ -62,7 +59,8 @@ class GameSelect extends React.Component {
                 )
               })}
             </ul>
-          </div>}
+          </div>
+        }
       </div>
     )
   }

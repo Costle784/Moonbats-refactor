@@ -15,5 +15,10 @@ module.exports = {
       }
       return newDate.join('')
     }
+  },
+  getTeamsInLeague: (teamArray, league) => {
+    return teamArray.filter((team) => {
+      return league === team.league;
+    })
   }
 }
