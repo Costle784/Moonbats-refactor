@@ -73,9 +73,10 @@ class MoonResults extends React.Component {
             <img src={moonPhase.img} alt={`photo of ${moonPhase.phase}`} className='teamselect-logo moon-image' />
           </div>
         </div>
-          <p className='result-text'>
-            The {this.props.team.name} have won {gameTally.wins} of {gameTally.total} ({percentage}) against the {this.props.opp.name} on a {moonPhase.phase} moon
-          </p>
+        <p className='result-text'>
+          The {this.props.team.name} have won {gameTally.wins} of {gameTally.total} ({percentage}) against the {this.props.opp.name} on a {moonPhase.phase} moon
+        </p>
+        <a className='moonphase-chart' target='_blank' href='https://cdn.thinglink.me/api/image/822131913035612161/1240/10/scaletowidth'><p>View a Moonphase chart</p></a> 
         <p><Link className='reset-button results-reset' to='/teams'> &#8592; Back to Teams</Link></p>
 
       </div>

@@ -234,7 +234,6 @@ footer {
   display:flex;
   justify-content: space-around;
   box-shadow: 0px 0px 5px #FFF;
-  flex-wrap:wrap;
   width:85%;
   margin:0 auto;
 }
@@ -270,9 +269,15 @@ footer {
   order:1;
 }
 
+.gamesummary-text {
+  font-size:1.5em;
+  margin:50px auto 15px auto;
+}
+
 .result-text {
   font-size:1.5em;
   margin:40px auto 15px auto;
+  color:rgb(255,239,104);
 }
 
 .results-titles {
@@ -311,16 +316,10 @@ footer {
 }
 
 .moonphase-chart {
-  width:150px;
+  text-decoration: underline;
+  color:#FFF;
 }
 
-.moonphase-chart-container{
-  text-align:left;
-}
-
-.moonphase-chart-thumb {
-  padding:5px;
-}
 @keyframes colorswitch {
   from {
     background-color:rgb(255,239,104);

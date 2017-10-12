@@ -31,13 +31,13 @@ class GameSelect extends React.Component {
 
     return (
       <div className='centered-container'>
-        {!this.state.games ? <Loading /> :
+        {this.state.games.length === 0 ? <Loading /> :
           <div>
             <Link className='reset-button' to='/teams'> &#8592; Back to Teams</Link>
             <img className='teamselect-logo' src={this.props.selectedTeam.logo} />
             <h1 className='teamselect-title'>Select a Game...</h1>
 
-            <ul className='game-grid'>
+            <div className='game-grid'>
               {games.map((game) => {
                 let date = game.date
                 let opponent = teams.filter((team) => {
@@ -47,18 +47,19 @@ class GameSelect extends React.Component {
                 let pathname = `/teams/${teamId}/games/${game.id}`
 
                 return (
-                  <li key={game.id} className='game-item'>
-                    <Link to={{pathname}} onClick={this.props.handleClick.bind(null, opp, game, date)}>
-                      <div className='date'>{helpers.formatDate(date)}</div>
-                      <div>{game.home === 'y' ?
-                        <span>vs. {opp.name}</span>  : <span>@ {opp.name}</span>}
-                      </div>
-                      <img className='gameselect-logo' alt={`logo for ${opp.name}`} src={opp.logo}/>
-                    </Link>
-                  </li>
+                  <Link key={game.id}
+                        className='game-item'
+                        to={{pathname}}
+                        onClick={this.props.handleClick.bind(null, opp, game, date)}>
+                    <div className='date'>{helpers.formatDate(date)}</div>
+                    <div>{game.home === 'y' ?
+                      <span>vs. {opp.name}</span>  : <span>@ {opp.name}</span>}
+                    </div>
+                    <img className='gameselect-logo' alt={`logo for ${opp.name}`} src={opp.logo}/>
+                  </Link>
                 )
               })}
-            </ul>
+            </div>
           </div>
         }
       </div>

@@ -65,7 +65,7 @@ class TeamSelect extends React.Component {
     super(props);
     this.state = {
       selectedLeague:'NL',
-      teams: ''
+      teams: []
     }
     this.updateLeague = this.updateLeague.bind(this);
   }
@@ -100,7 +100,7 @@ class TeamSelect extends React.Component {
           league={this.state.selectedLeague}
           onSelect={this.updateLeague}
         />
-        {this.state.teams === '' ?
+        {!this.state.teams.length === 0 ?
           <Loading /> :
           <TeamGrid teams={this.state.teams} handleSelect={this.props.handleSelect} />}
       </div>
