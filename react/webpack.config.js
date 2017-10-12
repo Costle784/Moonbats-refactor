@@ -4,7 +4,7 @@ var webpack = require('webpack');
 
 
 var config = {
-  entry: './app/index.js',
+  entry: './App/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index_bundle.js',
@@ -21,7 +21,7 @@ var config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'app/index.html'
+      template: 'App/index.html'
     })
   ]
 };
