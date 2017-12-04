@@ -83,7 +83,8 @@ class TeamSelect extends React.Component {
           teams: leagueTeams
         })
       })
-    } else {
+    }
+     else {
       let leagueTeams = helpers.getTeamsInLeague(this.props.allTeams, league)
       this.setState({
         selectedLeague: league,
@@ -93,6 +94,7 @@ class TeamSelect extends React.Component {
   }
 
   render() {
+    console.log(this.state.teams)
     return (
       <div className='centered-container'>
         <h1 className='teamselect-title'>Select a team to view 2018 schedule...</h1>
@@ -100,7 +102,8 @@ class TeamSelect extends React.Component {
           league={this.state.selectedLeague}
           onSelect={this.updateLeague}
         />
-        {!this.state.teams.length === 0 ?
+        {!this.state.teams ?
+
           <Loading /> :
           <TeamGrid teams={this.state.teams} handleSelect={this.props.handleSelect} />}
       </div>
