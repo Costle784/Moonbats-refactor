@@ -102,7 +102,7 @@ class TeamSelect extends React.Component {
           league={this.state.selectedLeague}
           onSelect={this.updateLeague}
         />
-        {!this.state.teams ?
+        {this.state.teams.length === 0 ?
 
           <Loading /> :
           <TeamGrid teams={this.state.teams} handleSelect={this.props.handleSelect} />}
