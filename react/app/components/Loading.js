@@ -5,7 +5,8 @@ class Loading extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: props.text
+      text: props.text,
+      speed: props.speed
     };
   }
 

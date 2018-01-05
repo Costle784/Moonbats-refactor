@@ -1,5 +1,4 @@
 const React = require('react');
-const Link = require('react-router-dom').Link;
 
 const Header = () => {
   return (

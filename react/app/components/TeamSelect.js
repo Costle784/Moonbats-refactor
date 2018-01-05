@@ -94,7 +94,6 @@ class TeamSelect extends React.Component {
   }
 
   render() {
-    console.log(this.state.teams)
     return (
       <div className='centered-container'>
         <h1 className='teamselect-title'>Select a team to view 2018 schedule...</h1>
